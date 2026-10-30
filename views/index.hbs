@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Netflick | Movies & Entertainment</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+
+        <div class="nav-left">
+
+            <a href="/netflick" class="logo">NETFLICK</a>
+
+            <nav class="nav-links">
+                <a href="/netflick" class="active">Home</a>
+                <a href="#">Movies</a>
+                <a href="#">TV Shows</a>
+                <a href="#">Categories</a>
+                <a href="#">My List</a>
+            </nav>
+
+        </div>
+
+        <div class="nav-right">
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search movies...">
+            </div>
+
+            <button class="add-btn" onclick="location.href='/netflick/add'">
+                <i class="fa-solid fa-plus"></i>
+                Add Movie
+            </button>
+
+            <div class="profile">
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-label">
+                    <i class="fa-solid fa-film"></i>
+                    YOUR ENTERTAINMENT HUB
+                </span>
+
+                <h1>Discover Your<br><span>Next Favourite.</span></h1>
+
+                <p>
+                    Explore your movie collection, discover great stories
+                    and keep all your favourite entertainment in one place.
+                </p>
+
+                <button class="explore-btn"
+                    onclick="document.getElementById('movie-library').scrollIntoView({behavior:'smooth'})">
+
+                    Explore Movies
+                    <i class="fa-solid fa-arrow-down"></i>
+
+                </button>
+
+            </div>
+
+            <div class="welcome-icon">
+                <i class="fa-solid fa-clapperboard"></i>
+            </div>
+
+        </section>
+
+
+        <!-- Movie Library -->
+        <section class="movie-section" id="movie-library">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">YOUR COLLECTION</span>
+                    <h2>Movie Library</h2>
+                    <p>Explore all your added movies.</p>
+                </div>
+
+                <div class="movie-count">
+                    <i class="fa-solid fa-film"></i>
+                    <span>{{movies.length}} Movies</span>
+                </div>
+
+            </div>
+
+
+            <!-- Movie Cards -->
+            {{#if movies}}
+
+            <div class="movie-grid">
+
+                {{#each movies}}
+
+                <div class="movie-card">
+
+                    <div class="movie-poster">
+
+                        <span class="movie-icon">
+                            <i class="fa-solid fa-film"></i>
+                        </span>
+
+                        <span class="movie-year">{{year}}</span>
+
+                        <div class="poster-overlay">
+                            <button title="View Movie">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="movie-details">
+
+                        <h3>{{title}}</h3>
+
+                        <div class="movie-meta">
+                            <span>{{genre}}</span>
+                            <span class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                {{rating}}
+                            </span>
+                        </div>
+
+                        <p>{{description}}</p>
+
+                    </div>
+
+                </div>
+
+                {{/each}}
+
+            </div>
+
+            {{else}}
+
+            <!-- Empty State -->
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    <i class="fa-solid fa-film"></i>
+                </div>
+
+                <h3>Your movie collection is empty</h3>
+
+                <p>
+                    You haven't added any movies yet.
+                    Start building your collection!
+                </p>
+
+                <button class="add-btn"
+                    onclick="location.href='/netflick/add'">
+
+                    <i class="fa-solid fa-plus"></i>
+                    Add Your First Movie
+
+                </button>
+
+            </div>
+
+            {{/if}}
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <div class="footer-left">
+                <span class="footer-logo">NETFLICK</span>
+                <p>Your personal entertainment collection.</p>
+            </div>
+
+            <div class="footer-right">
+                <span>© 2026 Netflick</span>
+                <span>Made for movie lovers.</span>
+            </div>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>
