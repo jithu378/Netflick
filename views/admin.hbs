@@ -4,411 +4,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Netflick | Admin Dashboard</title>
-
     <link rel="stylesheet" href="/css/admin.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
-
     <div class="admin-layout">
-
-        <!-- Sidebar -->
         <aside class="sidebar">
-
             <div class="sidebar-header">
-                <a href="/netflix" class="logo">NETFLICK</a>
+                <a href="/netflick" class="logo">NETFLICK</a>
                 <span>ADMIN PANEL</span>
             </div>
 
-
-            <div class="sidebar-menu">
-
-                <p class="menu-label">OVERVIEW</p>
-
-                <a href="#" class="menu-item active">
-                    <i class="fa-solid fa-chart-pie"></i>
+            <nav class="sidebar-menu" aria-label="Admin navigation">
+                <a href="/netflick/admin" class="menu-item active" aria-current="page">
+                    <i class="fa-solid fa-house" aria-hidden="true"></i>
                     Dashboard
                 </a>
-
-
-                <p class="menu-label">CONTENT MANAGEMENT</p>
-
                 <a href="#" class="menu-item">
-                    <i class="fa-solid fa-film"></i>
+                    <i class="fa-solid fa-film" aria-hidden="true"></i>
                     Movies
                 </a>
-
                 <a href="#" class="menu-item">
-                    <i class="fa-solid fa-tv"></i>
+                    <i class="fa-solid fa-tv" aria-hidden="true"></i>
                     TV Shows
                 </a>
-
                 <a href="#" class="menu-item">
-                    <i class="fa-solid fa-layer-group"></i>
+                    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
                     Categories
                 </a>
-
-
-                <p class="menu-label">MANAGEMENT</p>
-
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-circle-plus"></i>
-                    Add New Content
+                <a href="/netflick" class="menu-item back-link">
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    Back to Netflick
                 </a>
-
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    Recent Activity
-                </a>
-
-
-                <div class="sidebar-bottom">
-
-                    <a href="#" class="menu-item">
-                        <i class="fa-solid fa-gear"></i>
-                        Settings
-                    </a>
-
-                    <a href="/netflix" class="menu-item">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        Back to Netflick
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="sidebar-footer">
-                <div class="admin-avatar">
-                    <i class="fa-solid fa-user-shield"></i>
-                </div>
-
-                <div class="admin-info">
-                    <h4>Administrator</h4>
-                    <span>System Admin</span>
-                </div>
-
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-            </div>
-
+            </nav>
         </aside>
 
-
-        <!-- Main Content -->
         <main class="main-content">
-
-
-            <!-- Topbar -->
             <header class="topbar">
-
-                <div class="breadcrumb">
-                    <span>Pages</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                    <strong>Dashboard</strong>
-                </div>
-
-                <div class="topbar-right">
-
-                    <div class="system-status">
-                        <span class="status-dot"></span>
-                        System Online
-                    </div>
-
-                    <button class="notification-btn">
-                        <i class="fa-regular fa-bell"></i>
-                        <span></span>
-                    </button>
-
-                    <div class="topbar-profile">
-                        <i class="fa-solid fa-user-circle"></i>
-                    </div>
-
-                </div>
-
+                <h1>Dashboard</h1>
             </header>
 
-
-            <!-- Dashboard Content -->
             <div class="dashboard-content">
-
-
-                <!-- Welcome -->
-                <section class="welcome-section">
-
-                    <div>
-                        <span class="welcome-label">
-                            ADMINISTRATION
-                        </span>
-
-                        <h1>Welcome back, Admin!</h1>
-
-                        <p>
-                            Manage your entertainment library and keep
-                            your content organised.
-                        </p>
+                <section class="welcome-section" id="dashboard">
+                    <div class="welcome-copy">
+                        <span class="welcome-label">CONTENT MANAGEMENT</span>
+                        <h2>Welcome to Netflick Admin</h2>
+                        <p>Manage your movies, TV shows and categories in one place.</p>
                     </div>
-
-                    <div class="welcome-icon">
+                    <div class="welcome-mark" aria-hidden="true">
                         <i class="fa-solid fa-clapperboard"></i>
                     </div>
-
                 </section>
 
-
-                <!-- Statistics -->
-                <section class="stats-grid">
-
-                    <div class="stat-card">
-
-                        <div class="stat-top">
+                <section class="stats-grid" aria-label="Content statistics">
+                    <article class="stat-card">
+                        <span class="stat-icon"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
+                        <div class="stat-copy">
                             <span>Total Movies</span>
-                            <div class="stat-icon red">
-                                <i class="fa-solid fa-film"></i>
-                            </div>
+                            <strong>&mdash;</strong>
                         </div>
-
-                        <h2>0</h2>
-                        <p>Movies in your library</p>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-top">
-                            <span>TV Shows</span>
-                            <div class="stat-icon blue">
-                                <i class="fa-solid fa-tv"></i>
-                            </div>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-icon"><i class="fa-solid fa-tv" aria-hidden="true"></i></span>
+                        <div class="stat-copy">
+                            <span>Total TV Shows</span>
+                            <strong>&mdash;</strong>
                         </div>
-
-                        <h2>0</h2>
-                        <p>Shows in your library</p>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-top">
-                            <span>Categories</span>
-                            <div class="stat-icon orange">
-                                <i class="fa-solid fa-layer-group"></i>
-                            </div>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+                        <div class="stat-copy">
+                            <span>Total Categories</span>
+                            <strong>&mdash;</strong>
                         </div>
-
-                        <h2>0</h2>
-                        <p>Available categories</p>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-top">
-                            <span>Total Content</span>
-                            <div class="stat-icon green">
-                                <i class="fa-solid fa-database"></i>
-                            </div>
-                        </div>
-
-                        <h2>0</h2>
-                        <p>Movies and TV shows</p>
-
-                    </div>
-
+                    </article>
                 </section>
 
-
-                <!-- Quick Actions -->
                 <section class="content-section">
-
                     <div class="section-heading">
-                        <div>
-                            <h2>Quick Actions</h2>
-                            <p>Manage your streaming content.</p>
-                        </div>
+                        <h2>Quick Actions</h2>
                     </div>
-
-
                     <div class="action-grid">
-
-
                         <a href="#" class="action-card">
-
-                            <div class="action-icon red">
-                                <i class="fa-solid fa-film"></i>
-                            </div>
-
-                            <div class="action-info">
-                                <h3>Add Movie</h3>
-                                <p>Add a new movie to your library.</p>
-                            </div>
-
-                            <i class="fa-solid fa-arrow-up-right-from-square action-arrow"></i>
-
+                            <span class="action-icon"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
+                            <span class="action-label">Add Movie</span>
+                            <i class="fa-solid fa-arrow-right action-arrow" aria-hidden="true"></i>
                         </a>
-
-
                         <a href="#" class="action-card">
-
-                            <div class="action-icon blue">
-                                <i class="fa-solid fa-tv"></i>
-                            </div>
-
-                            <div class="action-info">
-                                <h3>Add TV Show</h3>
-                                <p>Add a new series or TV show.</p>
-                            </div>
-
-                            <i class="fa-solid fa-arrow-up-right-from-square action-arrow"></i>
-
+                            <span class="action-icon"><i class="fa-solid fa-tv" aria-hidden="true"></i></span>
+                            <span class="action-label">Add TV Show</span>
+                            <i class="fa-solid fa-arrow-right action-arrow" aria-hidden="true"></i>
                         </a>
-
-
                         <a href="#" class="action-card">
-
-                            <div class="action-icon orange">
-                                <i class="fa-solid fa-layer-group"></i>
-                            </div>
-
-                            <div class="action-info">
-                                <h3>Add Category</h3>
-                                <p>Create a new content category.</p>
-                            </div>
-
-                            <i class="fa-solid fa-arrow-up-right-from-square action-arrow"></i>
-
+                            <span class="action-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+                            <span class="action-label">Add Category</span>
+                            <i class="fa-solid fa-arrow-right action-arrow" aria-hidden="true"></i>
                         </a>
-
-
                     </div>
-
                 </section>
-
-
-                <!-- Content Overview -->
-                <section class="content-section">
-
-                    <div class="section-heading">
-
-                        <div>
-                            <h2>Content Overview</h2>
-                            <p>Manage your existing library.</p>
-                        </div>
-
-                        <a href="#" class="view-all">
-                            View All
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-
-                    <div class="overview-grid">
-
-
-                        <div class="overview-card">
-
-                            <div class="overview-icon">
-                                <i class="fa-solid fa-film"></i>
-                            </div>
-
-                            <div>
-                                <h3>Movies Library</h3>
-                                <p>View, edit and delete movies.</p>
-                            </div>
-
-                            <i class="fa-solid fa-chevron-right"></i>
-
-                        </div>
-
-
-                        <div class="overview-card">
-
-                            <div class="overview-icon">
-                                <i class="fa-solid fa-tv"></i>
-                            </div>
-
-                            <div>
-                                <h3>TV Shows Library</h3>
-                                <p>View and manage TV shows.</p>
-                            </div>
-
-                            <i class="fa-solid fa-chevron-right"></i>
-
-                        </div>
-
-
-                        <div class="overview-card">
-
-                            <div class="overview-icon">
-                                <i class="fa-solid fa-tags"></i>
-                            </div>
-
-                            <div>
-                                <h3>Categories</h3>
-                                <p>Organise your entertainment content.</p>
-                            </div>
-
-                            <i class="fa-solid fa-chevron-right"></i>
-
-                        </div>
-
-
-                    </div>
-
-                </section>
-
-
-                <!-- Recent Activity -->
-                <section class="content-section">
-
-                    <div class="section-heading">
-                        <div>
-                            <h2>Recent Activity</h2>
-                            <p>Latest updates from your library.</p>
-                        </div>
-                    </div>
-
-
-                    <div class="activity-empty">
-
-                        <div class="activity-icon">
-                            <i class="fa-solid fa-clock-rotate-left"></i>
-                        </div>
-
-                        <h3>No recent activity</h3>
-
-                        <p>
-                            Your latest content updates will appear here.
-                        </p>
-
-                    </div>
-
-                </section>
-
-
-                <!-- Footer -->
-                <footer class="admin-footer">
-
-                    <span>© 2026 NETFLICK</span>
-
-                    <span>Admin Dashboard · v1.0.0</span>
-
-                </footer>
-
-
             </div>
-
         </main>
-
     </div>
-
 </body>
+
 </html>
