@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #101010;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.category-container {
+    max-width: 500px;
+}
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 25px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #e50914;
+}
+
+.form-header h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    color: #999999;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.content-form {
+    background: #1c1c1c;
+    padding: 30px;
+    border: 1px solid #303030;
+    border-radius: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+    flex: 1;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #eeeeee;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+    background: #111111;
+    border: 1px solid #383838;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #e50914;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #777777;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.5;
+}
+
+.form-row {
+    display: flex;
+    gap: 18px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #e50914;
+    color: #ffffff;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background: #c40812;
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    .form-header h1 {
+        font-size: 25px;
+    }
+
+    .content-form {
+        padding: 22px 18px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+}
