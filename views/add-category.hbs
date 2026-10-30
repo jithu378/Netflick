@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category | Netflick Admin</title>
+    <link rel="stylesheet" href="/css/add-form.css">
+</head>
+
+<body>
+
+    <main class="form-container category-container">
+
+        <div class="form-header">
+            <a href="/admin" class="back-link">← Back to Dashboard</a>
+            <h1>Add Category</h1>
+            <p>Create a new category for your content.</p>
+        </div>
+
+        <form action="/admin/add-category" method="POST" class="content-form">
+
+            <div class="form-group">
+                <label>Category Name</label>
+                <input type="text" name="name"
+                    placeholder="e.g. Action, Comedy, Thriller" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Add Category</button>
+
+        </form>
+
+    </main>
+
+</body>
+</html>
