@@ -18,7 +18,7 @@
             <p>Add a new movie to your Netflick library.</p>
         </div>
 
-        <form action="/admin/add-movie" method="POST" class="content-form">
+        <form action="/content/add-movie-form" method="POST" class="content-form">
 
             <div class="form-group">
                 <label>Movie Title</label>
@@ -35,7 +35,7 @@
 
                 <div class="form-group">
                     <label>Genre</label>
-                    <select name="genre" required>
+                    <select name="genre" >
                         <option value="">Select Genre</option>
                         {{#each categories}}
                         <option value="{{_id}}">{{name}}</option>
