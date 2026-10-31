@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req,res) => {
-    res.render("index");
+const movieDetails = require("../models/movieModel");
+
+router.get("/", async(req,res) => {
+    const movieData = await movieDetails.find()
+    res.render("index", {movies : movieData});
 })
 
 router.get("/admin", (req,res) => {
