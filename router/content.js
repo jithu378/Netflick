@@ -5,12 +5,15 @@ const movieDetails = require("../models/movieModel");
 const categoryDetails = require("../models/categoryModel");
 const showDetails = require("../models/showModel");
 
-router.get("/add-movie", (req,res) => {
-    res.render("add-movie")
+router.get("/add-movie",async (req,res) => {
+    const categoryData = await categoryDetails.find()
+    res.render("add-movie", {categories : categoryData})
 })
 
-router.get("/add-show", (req,res) => {
-    res.render("add-show")
+router.get("/add-show", async (req,res) => {
+    const categoryData = await categoryDetails.find()
+    console.log(categoryData)
+    res.render("add-show", {categories : categoryData})
 })
 
 router.get("/add-category", (req,res) => {
@@ -42,6 +45,7 @@ router.post("/add-category-form", async (req, res) => {
     res.redirect("/netflick/admin")
 })
 
+
 router.post("/add-show-form", async (req, res) => {
     const {title, description, genre, releaseYear, language, totalSeasons, totalEpisodes, rating} =req.body;
     const showData = await showDetails.create({
@@ -57,5 +61,7 @@ router.post("/add-show-form", async (req, res) => {
 
     res.redirect("/netflick/admin")
 })
+
+
 
 module.exports = router;

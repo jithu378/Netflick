@@ -35,10 +35,10 @@
 
                 <div class="form-group">
                     <label>Genre</label>
-                    <select name="genre">
+                    <select name="genre" required>
                         <option value="">Select Genre</option>
                         {{#each categories}}
-                        <option value="{{_id}}">{{name}}</option>
+                        <option value="{{_id}}">{{categoryName}}</option>
                         {{/each}}
                     </select>
                 </div>
