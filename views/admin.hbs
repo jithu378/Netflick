@@ -4,109 +4,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflick | Admin Dashboard</title>
+
+    <title>Admin Dashboard | NETFLICK</title>
+
     <link rel="stylesheet" href="/css/admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
+
     <div class="admin-layout">
+
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="sidebar-header">
-                <a href="/netflick/admin/" class="logo">NETFLICK</a>
-                <span>ADMIN PANEL</span>
+
+            <div class="sidebar-logo">
+                NETFLICK<span>.</span>
             </div>
 
-            <nav class="sidebar-menu" aria-label="Admin navigation">
-                <a href="/netflick/admin" class="menu-item active" aria-current="page">
-                    <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <div class="sidebar-label">MAIN MENU</div>
+
+            <nav class="sidebar-nav">
+
+                <a href="/netflick/admin" class="nav-item active">
+                    <span>▦</span>
                     Dashboard
                 </a>
-                <a href="/content/display-movies" class="menu-item">
-                    <i class="fa-solid fa-film" aria-hidden="true"></i>
-                    Movies
-                </a>
-                <a href="/content/display-show" class="menu-item">
-                    <i class="fa-solid fa-tv" aria-hidden="true"></i>
-                    TV Shows
-                </a>
-                <a href="/content/display-category" class="menu-item">
-                    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-                    Categories
-                </a>
-                <a href="/netflick" class="menu-item back-link">
-                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-                    Back to Netflick
-                </a>
+
             </nav>
+
+            <div class="sidebar-label management-label">MANAGEMENT</div>
+
+            <nav class="sidebar-nav">
+
+                <a href="/content/add-movie" class="nav-item">
+                    <span>＋</span>
+                    Add Movie
+                </a>
+
+                <a href="/content/add-show" class="nav-item">
+                    <span>＋</span>
+                    Add TV Show
+                </a>
+
+                <a href="/content/add-category" class="nav-item">
+                    <span>＋</span>
+                    Add Category
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="/netflick" class="back-home">
+                    <span>↩</span>
+                    Back to Website
+                </a>
+            </div>
+
         </aside>
 
-        <main class="main-content">
-            <header class="topbar">
-                <h1>Dashboard</h1>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+
+                <div>
+                    <p class="topbar-subtitle">NETFLICK / ADMIN</p>
+                    <h2>Dashboard</h2>
+                </div>
+
+                <div class="admin-profile">
+                    <div class="profile-avatar">A</div>
+
+                    <div>
+                        <h4>Administrator</h4>
+                        <p>Admin Panel</p>
+                    </div>
+                </div>
+
             </header>
 
-            <div class="dashboard-content">
-                <section class="welcome-section" id="dashboard">
-                    <div class="welcome-copy">
-                        <span class="welcome-label">CONTENT MANAGEMENT</span>
-                        <h2>Welcome to Netflick Admin</h2>
-                        <p>Manage your movies, TV shows and categories in one place.</p>
-                    </div>
-                    <div class="welcome-mark" aria-hidden="true">
-                        <i class="fa-solid fa-clapperboard"></i>
-                    </div>
-                </section>
 
-                <section class="stats-grid" aria-label="Content statistics">
-                    <article class="stat-card">
-                        <span class="stat-icon"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
-                        <div class="stat-copy">
-                            <span>Total Movies</span>
-                            <strong>&mdash;</strong>
-                        </div>
-                    </article>
-                    <article class="stat-card">
-                        <span class="stat-icon"><i class="fa-solid fa-tv" aria-hidden="true"></i></span>
-                        <div class="stat-copy">
-                            <span>Total TV Shows</span>
-                            <strong>&mdash;</strong>
-                        </div>
-                    </article>
-                    <article class="stat-card">
-                        <span class="stat-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
-                        <div class="stat-copy">
-                            <span>Total Categories</span>
-                            <strong>&mdash;</strong>
-                        </div>
-                    </article>
-                </section>
+            <!-- Welcome Section -->
+            <section class="welcome-card">
 
-                <section class="content-section">
-                    <div class="section-heading">
+                <div>
+                    <p class="welcome-tag">ADMINISTRATION</p>
+
+                    <h1>Welcome Back, Admin!</h1>
+
+                    <p>
+                        Manage your entertainment library and keep
+                        your content collection organized.
+                    </p>
+                </div>
+
+                <div class="welcome-decoration">
+                    N
+                </div>
+
+            </section>
+
+
+            <!-- Statistics -->
+            <section class="stats-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Overview</h2>
+                        <p>Your content management summary</p>
+                    </div>
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon">▣</span>
+                            <span class="stat-label">CONTENT</span>
+                        </div>
+
+                        <h2>{{movieCount}}</h2>
+                        <p>Total Movies</p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon">▤</span>
+                            <span class="stat-label">CONTENT</span>
+                        </div>
+
+                        <h2>{{showCount}}</h2>
+                        <p>Total TV Shows</p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon">▧</span>
+                            <span class="stat-label">LIBRARY</span>
+                        </div>
+
+                        <h2>{{categoryCount}}</h2>
+                        <p>Total Categories</p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon">＋</span>
+                            <span class="stat-label">COLLECTION</span>
+                        </div>
+
+                        <h2>{{totalContent}}</h2>
+                        <p>Total Content</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Quick Actions -->
+            <section class="actions-section">
+
+                <div class="section-heading">
+                    <div>
                         <h2>Quick Actions</h2>
+                        <p>Manage your entertainment collection</p>
                     </div>
-                    <div class="action-grid">
-                        <a href="/content/add-movie" class="action-card">
-                            <span class="action-icon"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
-                            <span class="action-label">Add Movie</span>
-                            <i class="fa-solid fa-arrow-right action-arrow" aria-hidden="true"></i>
-                        </a>
-                        <a href="/content/add-show" class="action-card">
-                            <span class="action-icon"><i class="fa-solid fa-tv" aria-hidden="true"></i></span>
-                            <span class="action-label">Add TV Show</span>
-                            <i class="fa-solid fa-arrow-right action-arrow" aria-hidden="true"></i>
-                        </a>
-                        <a href="/content/add-category" class="action-card">
-                            <span class="action-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
-                            <span class="action-label">Add Category</span>
-                            <i class="fa-solid fa-arrow-right action-arrow" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </section>
-            </div>
+                </div>
+
+
+                <div class="actions-grid">
+
+                    <a href="/content/add-movie" class="action-card">
+
+                        <div class="action-icon">＋</div>
+
+                        <div>
+                            <h3>Add New Movie</h3>
+                            <p>Add a movie to your collection.</p>
+                        </div>
+
+                        <span class="action-arrow">→</span>
+
+                    </a>
+
+
+                    <a href="/content/add-show" class="action-card">
+
+                        <div class="action-icon">＋</div>
+
+                        <div>
+                            <h3>Add TV Show</h3>
+                            <p>Add a new series to NETFLICK.</p>
+                        </div>
+
+                        <span class="action-arrow">→</span>
+
+                    </a>
+
+
+                    <a href="/content/add-category" class="action-card">
+
+                        <div class="action-icon">＋</div>
+
+                        <div>
+                            <h3>Add Category</h3>
+                            <p>Create a new content category.</p>
+                        </div>
+
+                        <span class="action-arrow">→</span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+            <footer class="admin-footer">
+                <p>© 2026 NETFLICK Admin Panel</p>
+                <span>Manage your entertainment world.</span>
+            </footer>
+
         </main>
+
     </div>
+
 </body>
 
 </html>
