@@ -29,4 +29,8 @@ router.get("/displayCategories", async (req,res) => {
     res.render("displayCategories", {categories : categoryData});
 })
 
+router.get("/displayMyList", (req,res) => {
+    res.render("displayMyList");
+})
+
 module.exports=router;

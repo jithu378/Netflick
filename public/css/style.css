@@ -1000,6 +1000,144 @@ a {
 
 }
 
+
+/* ============================= */
+/* MY LIST PAGE */
+/* ============================= */
+
+.my-list-page {
+    min-height: calc(100vh - 150px);
+    padding: 55px 7%;
+}
+
+/* Heading */
+
+.my-list-heading {
+    margin-bottom: 45px;
+}
+
+.my-list-heading h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.my-list-heading p {
+    color: #999;
+    font-size: 15px;
+}
+
+
+/* Empty State */
+
+.my-list-empty {
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: #111;
+    border: 1px solid #252525;
+    border-radius: 12px;
+
+    padding: 40px 20px;
+}
+
+
+/* Icon */
+
+.my-list-icon {
+    width: 85px;
+    height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(229, 9, 20, 0.1);
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    border-radius: 50%;
+
+    margin-bottom: 25px;
+}
+
+.my-list-icon span {
+    font-size: 42px;
+    color: #e50914;
+}
+
+
+/* Text */
+
+.my-list-empty h2 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.my-list-empty p {
+    max-width: 430px;
+    color: #999;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+
+/* Button */
+
+.my-list-btn {
+    display: inline-block;
+
+    background: #e50914;
+    color: white;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    padding: 13px 25px;
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.my-list-btn:hover {
+    background: #b80710;
+    transform: translateY(-2px);
+}
+
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+
+    .my-list-page {
+        padding: 35px 5%;
+    }
+
+    .my-list-heading h1 {
+        font-size: 27px;
+    }
+
+    .my-list-empty {
+        min-height: 350px;
+        padding: 30px 18px;
+    }
+
+    .my-list-empty h2 {
+        font-size: 21px;
+    }
+
+    .my-list-empty p {
+        font-size: 14px;
+    }
+
+}
+
 /* ==============================
    TABLET RESPONSIVE
 ============================== */
