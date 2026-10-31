@@ -622,6 +622,96 @@ a {
     font-size: 12px;
 }
 
+/* ==============================
+   MOVIES PAGE
+============================== */
+
+.movies-page {
+    min-height: calc(100vh - 72px);
+}
+
+/* Page Heading */
+
+.movies-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px 0 35px;
+    border-bottom: 1px solid #292929;
+    margin-bottom: 30px;
+}
+
+.movies-heading h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    margin-top: 10px;
+    letter-spacing: -1px;
+}
+
+.movies-heading p {
+    color: #929292;
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+/* Movies Grid */
+
+.movies-page .movie-grid {
+    padding-bottom: 50px;
+}
+
+/* Movie Poster */
+
+.movies-page .movie-poster {
+    height: 250px;
+}
+
+/* Empty State */
+
+.back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 22px;
+    padding: 12px 20px;
+    background: #e50914;
+    color: white;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.back-home-btn:hover {
+    background: #b80710;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .movies-heading {
+        padding: 22px 0 25px;
+    }
+
+    .movies-page .movie-poster {
+        height: 190px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .movies-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .movies-page .movie-poster {
+        height: 220px;
+    }
+
+}
+
 
 /* ==============================
    TABLET RESPONSIVE

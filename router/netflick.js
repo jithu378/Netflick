@@ -12,4 +12,9 @@ router.get("/admin", (req,res) => {
     res.render("admin");
 })
 
+router.get("/movies", async (req,res) => {
+    const movieData = await movieDetails.find()
+    res.render("movies", {movies : movieData})
+})
+
 module.exports=router;

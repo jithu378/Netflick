@@ -19,30 +19,24 @@
     <header class="navbar">
 
         <div class="nav-left">
-
             <a href="/netflick" class="logo">NETFLICK</a>
-
             <nav class="nav-links">
                 <a href="/netflick" class="active">Home</a>
-                <a href="#">Movies</a>
+                <a href="/netflick/movies">Movies</a>
                 <a href="#">TV Shows</a>
                 <a href="#">Categories</a>
                 <a href="#">My List</a>
             </nav>
-
         </div>
 
         <div class="nav-right">
-
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search movies...">
             </div>
-
             <div class="profile">
                 <i class="fa-solid fa-circle-user"></i>
             </div>
-
         </div>
 
     </header>
@@ -62,7 +56,7 @@
                             <img src="https://image.tmdb.org/t/p/original/4t38w30bzdv92z3ex537Yo36ha2.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/3hNZdLQ0uy4XhJkd3rOfNZnQ2vV.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/uneEmfKFbyOZsN77JAHXK1cIAmX.jpg" alt="">
-                            <img src="https://image.tmdb.org/t/p/original/7jGItf7idJsBm9QTNoTNTU3KiGe.jpg" alt="">
+                            <img src="https://image.tmdb.org/t/p/original/v8Ydx3TyWOImcInNb1idApEM8ty.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/oMcO6vngxtjFduNz7lDTsybjrlL.jpg" alt="">
                         </div>
                         <div class="hero-gallery-set">
@@ -70,7 +64,7 @@
                             <img src="https://image.tmdb.org/t/p/original/4t38w30bzdv92z3ex537Yo36ha2.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/3hNZdLQ0uy4XhJkd3rOfNZnQ2vV.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/uneEmfKFbyOZsN77JAHXK1cIAmX.jpg" alt="">
-                            <img src="https://image.tmdb.org/t/p/original/7jGItf7idJsBm9QTNoTNTU3KiGe.jpg" alt="">
+                            <img src="https://image.tmdb.org/t/p/original/v8Ydx3TyWOImcInNb1idApEM8ty.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/oMcO6vngxtjFduNz7lDTsybjrlL.jpg" alt="">
                         </div>
                     </div>
@@ -83,7 +77,7 @@
                             <img src="https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/Amat66BPpRLGyfdyPTqZ5jQ3A1u.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/zGsHpuMN412VyzJZZnQeq4lMdjF.jpg" alt="">
-                            <img src="https://image.tmdb.org/t/p/original/pbTybnRu69jtO93dpvv4DQMF5qX.jpg" alt="">
+                            <img src="https://image.tmdb.org/t/p/original/7jGItf7idJsBm9QTNoTNTU3KiGe.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/aTLXje7UP05dNIShxq73P5Pdmo5.jpg" alt="">
                         </div>
                         <div class="hero-gallery-set">
@@ -91,7 +85,7 @@
                             <img src="https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/Amat66BPpRLGyfdyPTqZ5jQ3A1u.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/zGsHpuMN412VyzJZZnQeq4lMdjF.jpg" alt="">
-                            <img src="https://image.tmdb.org/t/p/original/pbTybnRu69jtO93dpvv4DQMF5qX.jpg" alt="">
+                            <img src="https://image.tmdb.org/t/p/original/7jGItf7idJsBm9QTNoTNTU3KiGe.jpg" alt="">
                             <img src="https://image.tmdb.org/t/p/original/aTLXje7UP05dNIShxq73P5Pdmo5.jpg" alt="">
                         </div>
                     </div>
@@ -99,95 +93,71 @@
             </div>
 
             <div class="welcome-content">
-
                 <span class="welcome-label">
                     <i class="fa-solid fa-film"></i>
                     YOUR ENTERTAINMENT HUB
                 </span>
-
                 <h1>
                     Discover Your<br>
                     <span>Next Favourite.</span>
                 </h1>
-
                 <p>
                     Explore your movie collection, discover great stories
                     and keep all your favourite entertainment in one place.
                 </p>
-
                 <button class="explore-btn"
                     onclick="document.getElementById('movie-library').scrollIntoView({behavior:'smooth'})">
-
                     Explore Movies
                     <i class="fa-solid fa-arrow-down"></i>
-
                 </button>
-
             </div>
-
             <div class="welcome-icon">
                 <i class="fa-solid fa-clapperboard"></i>
             </div>
-
         </section>
 
 
         <!-- Movie Library -->
         <section class="movie-section" id="movie-library">
-
             <div class="section-header">
-
                 <div>
                     <span class="section-label">EXPLORE</span>
                     <h2>Discover Movies</h2>
                     <p>Find something worth watching.</p>
                 </div>
-
                 <div class="movie-count">
                     <i class="fa-solid fa-film"></i>
                     <span>{{movies.length}} Movies</span>
                 </div>
-
             </div>
 
 
             <!-- Movie Cards -->
 
             {{#if movies}}
-
             <div class="movie-grid">
-
                 {{#each movies}}
 
                 <div class="movie-card">
-
                     <!-- Poster -->
                     <div class="movie-poster">
-
                         <span class="movie-icon">
                             <i class="fa-solid fa-film"></i>
                         </span>
-
                         <span class="movie-year">
                             {{movieReleaseYear}}
                         </span>
-
                         <div class="poster-overlay">
-
                             <button title="View Movie">
                                 <i class="fa-solid fa-play"></i>
                             </button>
-
                         </div>
-
                     </div>
-
 
                     <!-- Movie Details -->
                     <div class="movie-details">
 
                         <h3>{{movieTitle}}</h3>
-
                         <!-- Genre and Rating -->
                         <div class="movie-meta">
 
@@ -200,15 +170,12 @@
                                 <i class="fa-solid fa-star"></i>
                                 {{movieRating}}/10
                             </span>
-
                         </div>
-
 
                         <!-- Description -->
                         <p class="movie-description">
                             {{movieDescription}}
                         </p>
-
 
                         <!-- Additional Information -->
                         <div class="movie-info">
@@ -222,34 +189,23 @@
                                 <i class="fa-solid fa-clock"></i>
                                 {{movieDuration}} min
                             </span>
-
                         </div>
-
                     </div>
-
                 </div>
-
                 {{/each}}
-
             </div>
-
-
             {{else}}
 
             <!-- Empty State -->
             <div class="empty-state">
-
                 <div class="empty-icon">
                     <i class="fa-solid fa-film"></i>
                 </div>
-
                 <h3>Your movie collection is empty</h3>
-
                 <p>
                     You haven't added any movies yet.
                     Start building your collection!
                 </p>
-
             </div>
 
             {{/if}}
@@ -261,18 +217,13 @@
         <footer class="footer">
 
             <div class="footer-left">
-
                 <span class="footer-logo">NETFLICK</span>
-
                 <p>Your personal entertainment collection.</p>
-
             </div>
 
             <div class="footer-right">
-
                 <span>© 2026 Netflick</span>
                 <span>Made for movie lovers.</span>
-
             </div>
 
         </footer>
