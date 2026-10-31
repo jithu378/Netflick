@@ -850,6 +850,157 @@ a {
 }
 
 /* ==============================
+   CATEGORIES PAGE
+============================== */
+
+.categories-page {
+    min-height: calc(100vh - 72px);
+}
+
+/* Page Heading */
+
+.categories-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px 0 35px;
+    border-bottom: 1px solid #292929;
+    margin-bottom: 30px;
+}
+
+.categories-heading h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    margin-top: 10px;
+    letter-spacing: -1px;
+}
+
+.categories-heading p {
+    color: #929292;
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+/* Categories Grid */
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+/* Category Card */
+
+.category-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 24px;
+    min-height: 115px;
+    background: linear-gradient(135deg, #1b1b1b, #111111);
+    border: 1px solid #292929;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: #e50914;
+    background: linear-gradient(135deg, #242424, #151515);
+}
+
+/* Category Icon */
+
+.category-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    background: rgba(229, 9, 20, 0.12);
+    color: #e50914;
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+/* Category Details */
+
+.category-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.category-details h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.category-details span {
+    color: #888888;
+    font-size: 12px;
+}
+
+/* Arrow */
+
+.category-arrow {
+    color: #666666;
+    transition: all 0.25s ease;
+}
+
+.category-card:hover .category-arrow {
+    color: #e50914;
+    transform: translateX(4px);
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+
+    .categories-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .categories-heading {
+        padding: 22px 0 25px;
+    }
+
+    .categories-grid {
+        gap: 14px;
+    }
+
+    .category-card {
+        padding: 18px;
+        gap: 12px;
+    }
+
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+
+    .categories-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==============================
    TABLET RESPONSIVE
 ============================== */
 

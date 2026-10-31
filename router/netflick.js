@@ -15,13 +15,18 @@ router.get("/admin", (req,res) => {
 })
 
 router.get("/displayMovies", async (req,res) => {
-    const movieData = await movieDetails.find()
-    res.render("displayMovies", {movies : movieData})
+    const movieData = await movieDetails.find();
+    res.render("displayMovies", {movies : movieData});
 })
 
 router.get("/displayShows",async (req,res) => {
-    const showData = await showDetails.find()
-    res.render("displayShows", {shows : showData})
+    const showData = await showDetails.find();
+    res.render("displayShows", {shows : showData});
+})
+
+router.get("/displayCategories", async (req,res) => {
+    const categoryData = await categoryDetails.find();
+    res.render("displayCategories", {categories : categoryData});
 })
 
 module.exports=router;
