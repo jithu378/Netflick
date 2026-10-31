@@ -17,7 +17,10 @@ mongoose.connect("mongodb://localhost:27017/Netflick")
 })
 
 const netflickRouter = require("./router/netflick");
+const contentRouter = require("./router/content");
+
 app.use("/netflick", netflickRouter);
+app.use("/content", contentRouter);
 
 
 app.listen(3000, () =>{
