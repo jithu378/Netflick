@@ -5,16 +5,19 @@
 }
 
 body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     background: #101010;
     color: #ffffff;
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: 24px;
 }
 
 .form-container {
     width: 100%;
-    max-width: 650px;
+    max-width: 780px;
     margin: 0 auto;
 }
 
@@ -23,7 +26,7 @@ body {
 }
 
 .form-header {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .back-link {
@@ -31,7 +34,7 @@ body {
     color: #aaaaaa;
     text-decoration: none;
     font-size: 14px;
-    margin-bottom: 25px;
+    margin-bottom: 12px;
     transition: color 0.2s;
 }
 
@@ -40,19 +43,22 @@ body {
 }
 
 .form-header h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 29px;
+    margin-bottom: 6px;
 }
 
 .form-header p {
     color: #999999;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .content-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 22px;
     background: #1c1c1c;
-    padding: 30px;
+    padding: 24px 28px;
     border: 1px solid #303030;
     border-radius: 12px;
 }
@@ -60,14 +66,24 @@ body {
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 22px;
-    flex: 1;
+    min-width: 0;
+}
+
+.content-form > .form-group:first-child,
+.content-form > .form-group:nth-child(2),
+.content-form > .form-group:last-of-type,
+.submit-btn {
+    grid-column: 1 / -1;
+}
+
+.content-form:has(input[name="totalEpisodes"]) > .form-group:last-of-type {
+    grid-column: auto;
 }
 
 .form-group label {
     font-size: 14px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     color: #eeeeee;
 }
 
@@ -75,7 +91,7 @@ body {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 13px 14px;
+    padding: 10px 12px;
     background: #111111;
     border: 1px solid #383838;
     border-radius: 7px;
@@ -103,18 +119,18 @@ body {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 110px;
+    height: 86px;
+    min-height: 86px;
     line-height: 1.5;
 }
 
 .form-row {
-    display: flex;
-    gap: 18px;
+    display: contents;
 }
 
 .submit-btn {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
     background: #e50914;
     color: #ffffff;
     border: none;
@@ -132,20 +148,31 @@ body {
 @media (max-width: 600px) {
 
     body {
-        padding: 25px 15px;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 22px 15px;
     }
 
     .form-header h1 {
         font-size: 25px;
     }
 
-    .content-form {
-        padding: 22px 18px;
+    .form-container {
+        max-width: none;
     }
 
-    .form-row {
-        flex-direction: column;
-        gap: 0;
+    .content-form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        padding: 20px;
+    }
+
+}
+
+@media (max-height: 700px) {
+
+    body {
+        justify-content: flex-start;
     }
 
 }
