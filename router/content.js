@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const movieDetails = require("../models/movieModel");
+const categoryDetails = require("../models/categoryModel");
 
 router.get("/add-movie", (req,res) => {
     res.render("add-movie")
@@ -28,9 +29,16 @@ router.post("/add-movie-form", async (req,res) => {
         movieRating : rating
     })
 
-    res.redirect("/netflick/")
+    res.redirect("/netflick")
 })
 
+router.post("/add-category-form", async (req,res) => {
+    const {name} = req.body;
+    const categoryData = await categoryDetails.create({
+        categoryName : name
+    })
 
+    res.redirect("/netflick/admin")
+})
 
 module.exports = router;
