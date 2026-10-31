@@ -712,6 +712,142 @@ a {
 
 }
 
+/* ==============================
+   TV SHOWS PAGE
+============================== */
+
+.shows-page {
+    min-height: calc(100vh - 72px);
+}
+
+/* Page Heading */
+
+.shows-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px 0 35px;
+    border-bottom: 1px solid #292929;
+    margin-bottom: 30px;
+}
+
+.shows-heading h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    margin-top: 10px;
+    letter-spacing: -1px;
+}
+
+.shows-heading p {
+    color: #929292;
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+/* Shows Collection */
+
+.shows-collection {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    padding-bottom: 50px;
+}
+
+/* Show Poster */
+
+.show-poster {
+    height: 250px;
+}
+
+/* Show Information */
+
+.show-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 12px;
+    border-top: 1px solid #2d2d2d;
+}
+
+.show-info span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #a6a6a6;
+    font-size: 11px;
+}
+
+.show-info i {
+    color: #e50914;
+    width: 13px;
+}
+
+/* Empty State Button */
+
+.back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 22px;
+    padding: 12px 20px;
+    background: #e50914;
+    color: white;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.back-home-btn:hover {
+    background: #b80710;
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+
+    .shows-collection {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .shows-heading {
+        padding: 22px 0 25px;
+    }
+
+    .shows-collection {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .show-poster {
+        height: 190px;
+    }
+
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+
+    .shows-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .shows-collection {
+        grid-template-columns: 1fr;
+    }
+
+    .show-poster {
+        height: 220px;
+    }
+
+}
 
 /* ==============================
    TABLET RESPONSIVE

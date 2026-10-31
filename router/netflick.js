@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const movieDetails = require("../models/movieModel");
+const showDetails = require("../models/showModel");
+const categoryDetails = require("../models/categoryModel");
 
 router.get("/", async(req,res) => {
     const movieData = await movieDetails.find()
@@ -12,9 +14,14 @@ router.get("/admin", (req,res) => {
     res.render("admin");
 })
 
-router.get("/movies", async (req,res) => {
+router.get("/displayMovies", async (req,res) => {
     const movieData = await movieDetails.find()
-    res.render("movies", {movies : movieData})
+    res.render("displayMovies", {movies : movieData})
+})
+
+router.get("/displayShows",async (req,res) => {
+    const showData = await showDetails.find()
+    res.render("displayShows", {shows : showData})
 })
 
 module.exports=router;

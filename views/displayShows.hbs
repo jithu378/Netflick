@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Netflick | All Movies</title>
+    <title>Netflick | TV Shows</title>
 
     <link rel="stylesheet" href="/css/style.css">
 
@@ -23,67 +23,71 @@
 
             <nav class="nav-links">
                 <a href="/netflick">Home</a>
-                <a href="/netflick/movies" class="active">Movies</a>
-                <a href="#">TV Shows</a>
-                <a href="#">Categories</a>
+                <a href="/netflick/displayMovies">Movies</a>
+                <a href="/netflick/displayShows" class="active">TV Shows</a>
+                <a href="/netflick/displayMovies">Categories</a>
                 <a href="#">My List</a>
             </nav>
         </div>
 
         <div class="nav-right">
+
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search movies...">
+                <input type="text" placeholder="Search TV shows...">
             </div>
 
             <div class="profile">
                 <i class="fa-solid fa-circle-user"></i>
             </div>
+
         </div>
 
     </header>
 
 
-    <main class="container movies-page">
+    <main class="container shows-page">
 
         <!-- Page Heading -->
-        <section class="movies-heading">
+        <section class="shows-heading">
 
             <div>
                 <span class="section-label">YOUR COLLECTION</span>
-                <h1>Explore Movies</h1>
-                <p>Discover your next favourite movie.</p>
+
+                <h1>Explore TV Shows</h1>
+
+                <p>Discover amazing series and unforgettable stories.</p>
             </div>
 
             <div class="movie-count">
-                <i class="fa-solid fa-film"></i>
-                <span>{{movies.length}} Movies</span>
+                <i class="fa-solid fa-tv"></i>
+                <span>{{shows.length}} Shows</span>
             </div>
 
         </section>
 
 
-        <!-- Movie Collection -->
-        {{#if movies}}
+        <!-- TV Shows Collection -->
 
-        <section class="movie-grid">
+        <section class="shows-collection">
 
-            {{#each movies}}
+            {{#each shows}}
 
-            <article class="movie-card">
+            <article class="movie-card show-card">
 
-                <div class="movie-poster">
+                <!-- Show Poster -->
+                <div class="movie-poster show-poster">
 
                     <span class="movie-icon">
-                        <i class="fa-solid fa-film"></i>
+                        <i class="fa-solid fa-tv"></i>
                     </span>
 
                     <span class="movie-year">
-                        {{movieReleaseYear}}
+                        {{showReleaseYear}}
                     </span>
 
                     <div class="poster-overlay">
-                        <button type="button" title="View Movie">
+                        <button type="button" title="View Show">
                             <i class="fa-solid fa-play"></i>
                         </button>
                     </div>
@@ -91,38 +95,49 @@
                 </div>
 
 
+                <!-- Show Details -->
                 <div class="movie-details">
 
-                    <h3>{{movieTitle}}</h3>
+                    <h3>{{showTitle}}</h3>
 
+                    <!-- Genre and Rating -->
                     <div class="movie-meta">
 
                         <span class="genre">
                             <i class="fa-solid fa-tag"></i>
-                            {{movieGenre}}
+                            {{showGenre}}
                         </span>
 
                         <span class="rating">
                             <i class="fa-solid fa-star"></i>
-                            {{movieRating}}/10
+                            {{showRating}}/10
                         </span>
 
                     </div>
 
+
+                    <!-- Description -->
                     <p class="movie-description">
-                        {{movieDescription}}
+                        {{showDescription}}
                     </p>
 
-                    <div class="movie-info">
+
+                    <!-- Show Information -->
+                    <div class="show-info">
 
                         <span>
                             <i class="fa-solid fa-language"></i>
-                            {{movieLanguage}}
+                            {{showLanguage}}
                         </span>
 
                         <span>
-                            <i class="fa-solid fa-clock"></i>
-                            {{movieDuration}} min
+                            <i class="fa-solid fa-layer-group"></i>
+                            {{showTotalSeasons}} Seasons
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-list"></i>
+                            {{showTotalEpisodes}} Episodes
                         </span>
 
                     </div>
@@ -131,29 +146,28 @@
 
             </article>
 
+            {{else}}
+
+            <!-- Empty State -->
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    <i class="fa-solid fa-tv"></i>
+                </div>
+
+                <h3>No TV Shows Available</h3>
+
+                <p>Your TV show collection is currently empty.</p>
+
+                <a href="/netflick" class="back-home-btn">
+                    Back to Home
+                </a>
+
+            </div>
+
             {{/each}}
 
         </section>
-
-        {{else}}
-
-        <section class="empty-state">
-
-            <div class="empty-icon">
-                <i class="fa-solid fa-film"></i>
-            </div>
-
-            <h3>No Movies Available</h3>
-
-            <p>Your movie collection is currently empty.</p>
-
-            <a href="/netflick" class="back-home-btn">
-                Back to Home
-            </a>
-
-        </section>
-
-        {{/if}}
 
 
         <!-- Footer -->
