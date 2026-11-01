@@ -1392,3 +1392,23 @@ a {
     }
 
 }
+
+
+/* ============================= */
+/* FULL-SCREEN DESKTOP HERO FIX */
+/* ============================= */
+
+@media (min-width: 1200px) and (min-height: 850px) {
+
+    .welcome-section {
+        height: calc(100vh - 110px);
+        min-height: 650px;
+    }
+
+}
+
+/* Fix sticky navbar overlapping movie section */
+
+#movie-library {
+    scroll-margin-top: 40px;
+}
