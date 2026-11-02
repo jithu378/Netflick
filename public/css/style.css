@@ -594,35 +594,95 @@ a {
 /* ==============================
    FOOTER
 ============================== */
+/* ============================= */
+/* FOOTER */
+/* ============================= */
 
 .footer {
-    padding: 28px 0 32px;
+    width: 100%;
+    min-height: 110px;
+    padding: 25px clamp(20px, 5vw, 76px);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid #303030;
+    gap: 20px;
+
+    background: #101010;
+    border-top: 1px solid #292929;
+}
+
+/* Footer Left */
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .footer-logo {
-    font-size: 20px;
+    color: #e50914;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .footer-left p {
-    color: #888888;
+    color: #888;
     font-size: 12px;
-    margin-top: 8px;
+    line-height: 1.5;
 }
+
+/* Footer Right */
 
 .footer-right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 7px;
-    color: #888888;
+}
+
+.footer-right span:first-child {
+    color: #ccc;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.footer-right span:last-child {
+    color: #777;
     font-size: 12px;
 }
 
-/* ==============================
+/* Hover Effect */
+
+.footer-logo {
+    transition: color 0.25s ease;
+}
+
+.footer-logo:hover {
+    color: #ff333d;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+
+    .footer {
+        min-height: auto;
+        padding: 25px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .footer-right {
+        align-items: flex-start;
+        padding-top: 15px;
+        border-top: 1px solid #292929;
+        width: 100%;
+    }
+
+}/* ==============================
    MOVIES PAGE
 ============================== */
 
@@ -1110,34 +1170,20 @@ a {
     transform: translateY(-2px);
 }
 
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+
 
 /* Mobile Responsive */
 
-@media (max-width: 600px) {
-
-    .my-list-page {
-        padding: 35px 5%;
+@media (max-width: 768px) {
+    .footer-right {
+        align-items: flex-start;
+        gap: 6px;
     }
-
-    .my-list-heading h1 {
-        font-size: 27px;
-    }
-
-    .my-list-empty {
-        min-height: 350px;
-        padding: 30px 18px;
-    }
-
-    .my-list-empty h2 {
-        font-size: 21px;
-    }
-
-    .my-list-empty p {
-        font-size: 14px;
-    }
-
 }
-
 /* ==============================
    TABLET RESPONSIVE
 ============================== */

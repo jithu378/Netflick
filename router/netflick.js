@@ -10,13 +10,6 @@ router.get("/", async(req,res) => {
     res.render("index", {movies : movieData});
 });
 
-router.get("/admin", async(req,res) => {
-    const movieCount = await movieDetails.countDocuments();
-    const showCount = await showDetails.countDocuments();
-    const categoryCount = await categoryDetails.countDocuments();
-    const totalContent = movieCount + showCount;
-    res.render("admin",{movieCount, showCount, categoryCount, totalContent});
-})
 
 router.get("/displayMovies", async (req,res) => {
     const movieData = await movieDetails.find();

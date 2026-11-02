@@ -5,6 +5,14 @@ const movieDetails = require("../models/movieModel");
 const categoryDetails = require("../models/categoryModel");
 const showDetails = require("../models/showModel");
 
+router.get("/admin", async(req,res) => {
+    const movieCount = await movieDetails.countDocuments();
+    const showCount = await showDetails.countDocuments();
+    const categoryCount = await categoryDetails.countDocuments();
+    const totalContent = movieCount + showCount;
+    res.render("admin",{movieCount, showCount, categoryCount, totalContent});
+})
+
 router.get("/add-movie",async (req,res) => {
     const categoryData = await categoryDetails.find()
     res.render("add-movie", {categories : categoryData})
