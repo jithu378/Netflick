@@ -745,16 +745,92 @@ a {
     margin-top: 9px;
 }
 
-/* Movies Grid */
+/* Movies Grid & Cards */
 
 .movies-page .movie-grid {
     padding-bottom: 50px;
 }
 
+.movies-page .movie-card,
+.movie-section .movie-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 /* Movie Poster */
 
-.movies-page .movie-poster {
+.movies-page .movie-poster,
+.movie-section .movie-poster {
     height: 250px;
+    flex-shrink: 0;
+}
+
+/* Movie Details */
+
+.movies-page .movie-details,
+.movie-section .movie-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 16px;
+}
+
+.movies-page .movie-details h3,
+.movie-section .movie-details h3 {
+    min-height: 42px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.movies-page .movie-meta,
+.movie-section .movie-meta {
+    margin-bottom: 16px;
+}
+
+/* Hidden Card Elements */
+
+.movies-page .movie-description,
+.movies-page .movie-info,
+.movie-section .movie-description,
+.movie-section .movie-info {
+    display: none;
+}
+
+/* View Details Button */
+
+.view-details-btn {
+    margin-top: auto;
+    width: 100%;
+    padding: 10px 16px;
+    background: #e50914;
+    color: #ffffff;
+    border: 1px solid #e50914;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: 0.3px;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.view-details-btn:hover {
+    background: #b80710;
+    border-color: #b80710;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(229, 9, 20, 0.4);
+}
+
+.view-details-btn:active {
+    transform: translateY(0);
 }
 
 /* Empty State */
@@ -1328,8 +1404,9 @@ a {
         gap: 16px;
     }
 
-    .movie-poster {
-        height: 175px;
+    .movie-poster,
+    .movies-page .movie-poster {
+        height: 180px;
     }
 
     .movie-details {
@@ -1426,7 +1503,8 @@ a {
         gap: 18px;
     }
 
-    .movie-poster {
+    .movie-poster,
+    .movies-page .movie-poster {
         height: 220px;
     }
 
