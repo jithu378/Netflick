@@ -926,6 +926,43 @@ a {
     height: 250px;
 }
 
+/* Show Card Layout */
+
+.show-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.show-card .show-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 16px;
+}
+
+.show-card .show-details h3 {
+    min-height: 42px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.show-card .movie-meta {
+    margin-bottom: 14px;
+}
+
+.show-card .show-info {
+    margin-bottom: 16px;
+}
+
+.show-card .view-details-btn {
+    margin-top: auto;
+}
+
 /* Show Information */
 
 .show-info {
