@@ -41,7 +41,7 @@ router.post("/add-movie-form", async (req,res) => {
         movieRating : rating
     })
 
-    res.redirect("/netflick/admin")
+    res.redirect("/content/admin")
 })
 
 router.post("/add-category-form", async (req, res) => {
@@ -50,7 +50,7 @@ router.post("/add-category-form", async (req, res) => {
         categoryName : name
     })
 
-    res.redirect("/netflick/admin")
+    res.redirect("/content/admin")
 })
 
 
@@ -67,7 +67,7 @@ router.post("/add-show-form", async (req, res) => {
         showRating : rating
     })
 
-    res.redirect("/netflick/admin")
+    res.redirect("/content/admin")
 })
 
 

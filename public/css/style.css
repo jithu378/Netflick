@@ -88,7 +88,38 @@ a {
     gap: 16px;
 }
 
+/* Admin Button */
 
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 17px;
+
+    background: rgba(229, 9, 20, 0.10);
+    border: 1px solid rgba(229, 9, 20, 0.35);
+    border-radius: 6px;
+
+    color: #ff333d;
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    transition: 0.25s ease;
+}
+
+.admin-btn span {
+    font-size: 16px;
+}
+
+.admin-btn:hover {
+    background: #e50914;
+    color: #fff;
+    border-color: #e50914;
+    transform: translateY(-1px);
+}
 /* Search */
 
 .search-box {
