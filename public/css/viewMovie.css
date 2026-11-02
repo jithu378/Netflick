@@ -482,67 +482,7 @@
     overflow-wrap: anywhere;
 }
 
-/* ==============================
-   GRACEFUL NOT FOUND STATE
-============================== */
 
-.details-empty-state {
-    padding: 80px 20px;
-    margin: 40px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: #121212;
-    border: 1px dashed #333333;
-    border-radius: 12px;
-}
-
-.empty-icon-wrap {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(229, 9, 20, 0.12);
-    border: 1px solid rgba(229, 9, 20, 0.3);
-    color: var(--details-red);
-    border-radius: 50%;
-    font-size: 32px;
-    margin-bottom: 22px;
-}
-
-.details-empty-state h2 {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.details-empty-state p {
-    color: #999999;
-    font-size: 14px;
-    max-width: 480px;
-    line-height: 1.6;
-    margin-bottom: 26px;
-}
-
-.back-catalog-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    padding: 12px 24px;
-    background: var(--details-red);
-    color: #ffffff;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.back-catalog-btn:hover {
-    background: var(--details-red-hover);
-    transform: translateY(-2px);
-}
 
 /* ==============================
    RESPONSIVE DESIGN

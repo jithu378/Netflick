@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{#if showTitle}}{{showTitle}} - Netflick{{else}}TV Show Details - Netflick{{/if}}</title>
+    <title>{{viewShow.showTitle}} - Netflick</title>
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/viewShow.css">
@@ -47,23 +47,6 @@
 
     <main class="container show-details-page">
 
-        {{#if notFound}}
-
-        <!-- Graceful Not Found State -->
-        <section class="details-empty-state">
-            <div class="empty-icon-wrap">
-                <i class="fa-solid fa-tv"></i>
-            </div>
-            <h2>TV Show Not Found</h2>
-            <p>{{#if message}}{{message}}{{else}}The requested TV show does not exist or has been removed.{{/if}}</p>
-            <a href="/netflick/displayShows" class="back-catalog-btn">
-                <i class="fa-solid fa-arrow-left"></i>
-                Back to All TV Shows
-            </a>
-        </section>
-
-        {{else}}
-
         <!-- Breadcrumb / Back Link -->
         <div class="details-breadcrumb">
             <a href="/netflick/displayShows" class="back-link">
@@ -83,7 +66,7 @@
                     </span>
 
                     <span class="poster-year-badge">
-                        {{showReleaseYear}}
+                        {{viewShow.showReleaseYear}}
                     </span>
 
                     <div class="poster-quality-badge">
@@ -109,43 +92,43 @@
                     </span>
                     <span class="tag-badge tag-genre">
                         <i class="fa-solid fa-tag"></i>
-                        {{showGenre}}
+                        {{viewShow.showGenre}}
                     </span>
                     <span class="tag-badge tag-lang">
                         <i class="fa-solid fa-globe"></i>
-                        {{showLanguage}}
+                        {{viewShow.showLanguage}}
                     </span>
                 </div>
 
                 <!-- Show Title -->
-                <h1 class="show-details-title">{{showTitle}}</h1>
+                <h1 class="show-details-title">{{viewShow.showTitle}}</h1>
 
                 <!-- Meta Pills -->
                 <div class="details-meta-bar">
                     <div class="meta-pill rating-pill">
                         <i class="fa-solid fa-star"></i>
-                        <span class="rating-value">{{showRating}}</span>
+                        <span class="rating-value">{{viewShow.showRating}}</span>
                         <span class="rating-scale">/10</span>
                     </div>
 
                     <div class="meta-pill">
                         <i class="fa-solid fa-layer-group"></i>
-                        <span>{{showTotalSeasons}} Seasons</span>
+                        <span>{{viewShow.showTotalSeasons}} Seasons</span>
                     </div>
 
                     <div class="meta-pill">
                         <i class="fa-solid fa-list-ol"></i>
-                        <span>{{showTotalEpisodes}} Episodes</span>
+                        <span>{{viewShow.showTotalEpisodes}} Episodes</span>
                     </div>
 
                     <div class="meta-pill">
                         <i class="fa-regular fa-calendar"></i>
-                        <span>{{showReleaseYear}}</span>
+                        <span>{{viewShow.showReleaseYear}}</span>
                     </div>
 
                     <div class="meta-pill">
                         <i class="fa-solid fa-language"></i>
-                        <span>{{showLanguage}}</span>
+                        <span>{{viewShow.showLanguage}}</span>
                     </div>
                 </div>
 
@@ -173,7 +156,7 @@
                 <!-- Storyline / Description Block -->
                 <div class="storyline-block">
                     <h3>Storyline</h3>
-                    <p class="storyline-text">{{showDescription}}</p>
+                    <p class="storyline-text">{{viewShow.showDescription}}</p>
                 </div>
 
             </div>
@@ -197,7 +180,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Series Title</span>
-                        <strong class="spec-value">{{showTitle}}</strong>
+                        <strong class="spec-value">{{viewShow.showTitle}}</strong>
                     </div>
                 </div>
 
@@ -207,7 +190,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Genre</span>
-                        <strong class="spec-value">{{showGenre}}</strong>
+                        <strong class="spec-value">{{viewShow.showGenre}}</strong>
                     </div>
                 </div>
 
@@ -217,7 +200,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Release Year</span>
-                        <strong class="spec-value">{{showReleaseYear}}</strong>
+                        <strong class="spec-value">{{viewShow.showReleaseYear}}</strong>
                     </div>
                 </div>
 
@@ -227,7 +210,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Language</span>
-                        <strong class="spec-value">{{showLanguage}}</strong>
+                        <strong class="spec-value">{{viewShow.showLanguage}}</strong>
                     </div>
                 </div>
 
@@ -237,7 +220,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Total Seasons</span>
-                        <strong class="spec-value">{{showTotalSeasons}} Seasons</strong>
+                        <strong class="spec-value">{{viewShow.showTotalSeasons}} Seasons</strong>
                     </div>
                 </div>
 
@@ -247,7 +230,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Total Episodes</span>
-                        <strong class="spec-value">{{showTotalEpisodes}} Episodes</strong>
+                        <strong class="spec-value">{{viewShow.showTotalEpisodes}} Episodes</strong>
                     </div>
                 </div>
 
@@ -257,15 +240,13 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Rating</span>
-                        <strong class="spec-value">{{showRating}} / 10</strong>
+                        <strong class="spec-value">{{viewShow.showRating}} / 10</strong>
                     </div>
                 </div>
 
             </div>
 
         </section>
-
-        {{/if}}
 
 
         <!-- Footer -->
@@ -288,4 +269,3 @@
 </body>
 
 </html>
-

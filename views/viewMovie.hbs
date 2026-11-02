@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{#if movieTitle}}{{movieTitle}} - Netflick{{else}}Movie Details - Netflick{{/if}}</title>
+    <title>{{viewMovie.movieTitle}} - Netflick</title>
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/viewMovie.css">
@@ -47,23 +47,6 @@
 
     <main class="container movie-details-page">
 
-        {{#if notFound}}
-
-        <!-- Graceful Not Found State -->
-        <section class="details-empty-state">
-            <div class="empty-icon-wrap">
-                <i class="fa-solid fa-film"></i>
-            </div>
-            <h2>Movie Not Found</h2>
-            <p>{{#if message}}{{message}}{{else}}The requested movie does not exist or has been removed.{{/if}}</p>
-            <a href="/netflick/displayMovies" class="back-catalog-btn">
-                <i class="fa-solid fa-arrow-left"></i>
-                Back to All Movies
-            </a>
-        </section>
-
-        {{else}}
-
         <!-- Breadcrumb / Back Link -->
         <div class="details-breadcrumb">
             <a href="/netflick/displayMovies" class="back-link">
@@ -83,7 +66,7 @@
                     </span>
 
                     <span class="poster-year-badge">
-                        {{movieReleaseYear}}
+                        {{viewMovie.movieReleaseYear}}
                     </span>
 
                     <div class="poster-quality-badge">
@@ -109,38 +92,38 @@
                     </span>
                     <span class="tag-badge tag-genre">
                         <i class="fa-solid fa-tag"></i>
-                        {{movieGenre}}
+                        {{viewMovie.movieGenre}}
                     </span>
                     <span class="tag-badge tag-lang">
                         <i class="fa-solid fa-globe"></i>
-                        {{movieLanguage}}
+                        {{viewMovie.movieLanguage}}
                     </span>
                 </div>
 
                 <!-- Movie Title -->
-                <h1 class="movie-details-title">{{movieTitle}}</h1>
+                <h1 class="movie-details-title">{{viewMovie.movieTitle}}</h1>
 
                 <!-- Meta Pills -->
                 <div class="details-meta-bar">
                     <div class="meta-pill rating-pill">
                         <i class="fa-solid fa-star"></i>
-                        <span class="rating-value">{{movieRating}}</span>
+                        <span class="rating-value">{{viewMovie.movieRating}}</span>
                         <span class="rating-scale">/10</span>
                     </div>
 
                     <div class="meta-pill">
                         <i class="fa-regular fa-clock"></i>
-                        <span>{{movieDuration}} mins</span>
+                        <span>{{viewMovie.movieDuration}} mins</span>
                     </div>
 
                     <div class="meta-pill">
                         <i class="fa-regular fa-calendar"></i>
-                        <span>{{movieReleaseYear}}</span>
+                        <span>{{viewMovie.movieReleaseYear}}</span>
                     </div>
 
                     <div class="meta-pill">
                         <i class="fa-solid fa-language"></i>
-                        <span>{{movieLanguage}}</span>
+                        <span>{{viewMovie.movieLanguage}}</span>
                     </div>
                 </div>
 
@@ -168,7 +151,7 @@
                 <!-- Storyline / Description Block -->
                 <div class="storyline-block">
                     <h3>Storyline</h3>
-                    <p class="storyline-text">{{movieDescription}}</p>
+                    <p class="storyline-text">{{viewMovie.movieDescription}}</p>
                 </div>
 
             </div>
@@ -192,7 +175,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Movie Title</span>
-                        <strong class="spec-value">{{movieTitle}}</strong>
+                        <strong class="spec-value">{{viewMovie.movieTitle}}</strong>
                     </div>
                 </div>
 
@@ -202,7 +185,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Genre</span>
-                        <strong class="spec-value">{{movieGenre}}</strong>
+                        <strong class="spec-value">{{viewMovie.movieGenre}}</strong>
                     </div>
                 </div>
 
@@ -212,7 +195,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Release Year</span>
-                        <strong class="spec-value">{{movieReleaseYear}}</strong>
+                        <strong class="spec-value">{{viewMovie.movieReleaseYear}}</strong>
                     </div>
                 </div>
 
@@ -222,7 +205,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Language</span>
-                        <strong class="spec-value">{{movieLanguage}}</strong>
+                        <strong class="spec-value">{{viewMovie.movieLanguage}}</strong>
                     </div>
                 </div>
 
@@ -232,7 +215,7 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Duration</span>
-                        <strong class="spec-value">{{movieDuration}} Minutes</strong>
+                        <strong class="spec-value">{{viewMovie.movieDuration}} Minutes</strong>
                     </div>
                 </div>
 
@@ -242,15 +225,13 @@
                     </div>
                     <div class="spec-info">
                         <span class="spec-label">Rating</span>
-                        <strong class="spec-value">{{movieRating}} / 10</strong>
+                        <strong class="spec-value">{{viewMovie.movieRating}} / 10</strong>
                     </div>
                 </div>
 
             </div>
 
         </section>
-
-        {{/if}}
 
 
         <!-- Footer -->
@@ -273,4 +254,3 @@
 </body>
 
 </html>
-
