@@ -69,15 +69,10 @@ body {
     min-width: 0;
 }
 
-.content-form > .form-group:first-child,
-.content-form > .form-group:nth-child(2),
-.content-form > .form-group:last-of-type,
+.form-group--full,
+.category-container .form-group,
 .submit-btn {
     grid-column: 1 / -1;
-}
-
-.content-form:has(input[name="totalEpisodes"]) > .form-group:last-of-type {
-    grid-column: auto;
 }
 
 .form-group label {
@@ -111,6 +106,35 @@ body {
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: #777777;
+}
+
+.form-group input[type="file"] {
+    padding: 8px;
+    color: #aaaaaa;
+    cursor: pointer;
+}
+
+.form-group input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 8px 12px;
+    background: #303030;
+    border: 1px solid #484848;
+    border-radius: 5px;
+    color: #ffffff;
+    font: inherit;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background: #3a3a3a;
+    border-color: #e50914;
+}
+
+.file-input-hint {
+    margin-top: 6px;
+    color: #888888;
+    font-size: 12px;
 }
 
 .form-group select {
