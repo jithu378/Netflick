@@ -1,9 +1,21 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
 
 const movieDetails = require("../models/movieModel");
 const categoryDetails = require("../models/categoryModel");
 const showDetails = require("../models/showModel");
+
+const storage = multer.diskStorage({
+    destination : (req, file, cb) => {
+        cb(null, "uploads/");
+    },
+    filename : (req, file, cb) => {
+        cb(null, Date.now() + "-" + posterImage.orginalName)
+    }
+})
+
+const posterImage = multer({storage})
 
 router.get("/admin", async(req,res) => {
     const movieCount = await movieDetails.countDocuments();
@@ -29,7 +41,7 @@ router.get("/add-category", (req,res) => {
 })
 
 // form data
-router.post("/add-movie-form", async (req,res) => {
+router.post("/add-movie-form",posterImage.single("posterImage"), async (req,res) => {
     const {title, description, genre, releaseYear, language, duration, rating} =req.body;
     const movieData = await movieDetails.create({
         movieTitle : title,
@@ -39,6 +51,7 @@ router.post("/add-movie-form", async (req,res) => {
         movieLanguage : language,
         movieDuration : duration,
         movieRating : rating
+        
     })
 
     res.redirect("/content/admin")
@@ -54,7 +67,7 @@ router.post("/add-category-form", async (req, res) => {
 })
 
 
-router.post("/add-show-form", async (req, res) => {
+router.post("/add-show-form", posterImage.single("posterImage"), async (req, res) => {
     const {title, description, genre, releaseYear, language, totalSeasons, totalEpisodes, rating} =req.body;
     const showData = await showDetails.create({
         showTitle : title,

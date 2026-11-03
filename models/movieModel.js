@@ -7,7 +7,8 @@ const movieSchema = mongoose.Schema(
         movieReleaseYear : Number,
         movieLanguage : String,
         movieDuration : Number,
-        movieRating : Number
+        movieRating : Number,
+        moviePoster : String
     }
 );
 

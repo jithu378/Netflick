@@ -9,6 +9,7 @@ const showSchema = mongoose.Schema(
         showTotalSeasons: Number,
         showTotalEpisodes: Number,
         showRating: Number,
+        showPoster : String
     }
 );
 
