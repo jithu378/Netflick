@@ -51,18 +51,16 @@ router.post("/add-movie-form",posterImage.single("posterImage"), async (req,res)
         movieLanguage : language,
         movieDuration : duration,
         movieRating : rating
-        
+
     })
 
     res.redirect("/content/admin")
 })
 
 router.post("/add-category-form", async (req, res) => {
-    const {name} = req.body;
     const categoryData = await categoryDetails.create({
         categoryName : name
     })
-
     res.redirect("/content/admin")
 })
 
