@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage TV Shows | NETFLICK Admin</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/manage-content.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-logo">NETFLICK<span>.</span></div>
+            <div class="sidebar-label">MAIN MENU</div>
+            <nav class="sidebar-nav">
+                <a href="/content/admin" class="nav-item"><span>▦</span>Dashboard</a>
+            </nav>
+            <div class="sidebar-label management-label">CONTENT MANAGEMENT</div>
+            <nav class="sidebar-nav">
+                <a href="/content/manage-movies" class="nav-item"><span>▣</span>Movies</a>
+                <a href="/content/manage-shows" class="nav-item active"><span>▤</span>TV Shows</a>
+                <a href="/content/manage-categories" class="nav-item"><span>▧</span>Categories</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="/netflick" class="back-home"><span>↩</span>Back to Website</a>
+            </div>
+        </aside>
+
+        <main class="admin-main content-main">
+            <header class="admin-topbar">
+                <div>
+                    <p class="topbar-subtitle">NETFLICK / ADMIN / CONTENT</p>
+                    <h2>TV Shows</h2>
+                </div>
+                <div class="admin-profile">
+                    <div class="profile-avatar">A</div>
+                    <div><h4>Administrator</h4><p>Admin Panel</p></div>
+                </div>
+            </header>
+
+            <section class="manage-heading">
+                <div>
+                    <h1>Manage TV Shows</h1>
+                    <p>View and update series in your collection.</p>
+                </div>
+                <a href="/content/add-show" class="manage-add-button">＋ Add New TV Show</a>
+            </section>
+
+            {{#if shows.length}}
+            <div class="manage-table-wrap">
+                <table class="manage-table">
+                    <thead>
+                        <tr>
+                            <th>TV Show</th>
+                            <th>Genre</th>
+                            <th>Year</th>
+                            <th>Language</th>
+                            <th>Rating</th>
+                            <th>Seasons</th>
+                            <th>Episodes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each shows}}
+                        <tr>
+                            <td>
+                                <div class="manage-title-cell">
+                                    <div class="manage-poster">
+                                        {{#if showPoster}}
+                                        <img src="{{showPoster}}" alt="{{showTitle}} poster" onerror="this.remove()">
+                                        {{/if}}
+                                        <span>▤</span>
+                                    </div>
+                                    <strong>{{showTitle}}</strong>
+                                </div>
+                            </td>
+                            <td>{{showGenre}}</td>
+                            <td>{{showReleaseYear}}</td>
+                            <td>{{showLanguage}}</td>
+                            <td><span class="rating-chip">★ {{showRating}}</span></td>
+                            <td>{{showTotalSeasons}}</td>
+                            <td>{{showTotalEpisodes}}</td>
+                            <td>
+                                <div class="manage-actions">
+                                    <a href="/content/view-show/{{_id}}" class="manage-button view-button">View</a>
+                                    <a href="/content/edit-show/{{_id}}" class="manage-button update-button">Update</a>
+                                    <form action="/content/delete-show/{{_id}}" method="POST"
+                                        onsubmit="return confirm('Delete this TV show?');">
+                                        <button type="submit" class="manage-button delete-button">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            {{else}}
+            <section class="manage-empty">
+                <div class="empty-symbol">▤</div>
+                <h3>No TV shows yet</h3>
+                <p>Add a show to start building your collection.</p>
+                <a href="/content/add-show" class="manage-add-button">＋ Add New TV Show</a>
+            </section>
+            {{/if}}
+
+            <footer class="admin-footer">
+                <p>© 2026 NETFLICK Admin Panel</p>
+                <span>Manage your entertainment world.</span>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>

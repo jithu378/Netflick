@@ -1,0 +1,380 @@
+body {
+    min-width: 320px;
+}
+
+.content-main {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+}
+
+.manage-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.manage-heading h1 {
+    margin-bottom: 7px;
+    font-size: 25px;
+}
+
+.manage-heading p {
+    color: #888;
+    font-size: 13px;
+}
+
+.manage-add-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 11px 16px;
+    border: 1px solid #e50914;
+    border-radius: 6px;
+    background: #e50914;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.manage-add-button:hover {
+    border-color: #bd0710;
+    background: #bd0710;
+}
+
+.manage-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #292929;
+    border-radius: 9px;
+    background: #141414;
+}
+
+.manage-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.manage-table th,
+.manage-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #292929;
+    color: #aaa;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.manage-table th {
+    background: #191919;
+    color: #777;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.manage-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.manage-table tbody tr:hover {
+    background: #191919;
+}
+
+.manage-title-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 180px;
+    color: #f2f2f2;
+}
+
+.manage-title-cell strong {
+    max-width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.manage-poster {
+    position: relative;
+    display: grid;
+    width: 42px;
+    height: 58px;
+    flex: 0 0 42px;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: linear-gradient(145deg, #292929, #111);
+    color: #666;
+    font-size: 18px;
+}
+
+.manage-poster img {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rating-chip {
+    color: #f3c443;
+    font-weight: 700;
+}
+
+.manage-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.manage-actions form {
+    margin: 0;
+}
+
+.manage-button {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 9px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #fff;
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.view-button {
+    border-color: #383838;
+    background: #292929;
+}
+
+.view-button:hover {
+    background: #3a3a3a;
+}
+
+.update-button {
+    border-color: #713138;
+    background: #411c20;
+}
+
+.update-button:hover {
+    background: #602329;
+}
+
+.delete-button {
+    border-color: #e50914;
+    background: #e50914;
+}
+
+.delete-button:hover {
+    border-color: #bd0710;
+    background: #bd0710;
+}
+
+.category-table {
+    min-width: 420px;
+}
+
+.category-table td:first-child {
+    color: #f2f2f2;
+}
+
+.manage-empty {
+    display: flex;
+    min-height: 260px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    border: 1px dashed #383838;
+    border-radius: 9px;
+    background: #121212;
+    text-align: center;
+}
+
+.empty-symbol {
+    margin-bottom: 14px;
+    color: #e50914;
+    font-size: 36px;
+}
+
+.manage-empty h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.manage-empty p {
+    margin-bottom: 18px;
+    color: #888;
+    font-size: 13px;
+}
+
+.content-main .admin-footer {
+    margin-top: 40px;
+}
+
+.manage-back-link {
+    display: inline-block;
+    margin: 0 0 20px;
+    color: #aaa;
+    font-size: 13px;
+}
+
+.manage-back-link:hover {
+    color: #e50914;
+}
+
+.record-details {
+    display: grid;
+    grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+    padding: 26px;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    background: #141414;
+}
+
+.record-poster {
+    position: relative;
+    display: grid;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #292929, #111);
+    color: #666;
+    font-size: 56px;
+}
+
+.record-poster img {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.record-content {
+    min-width: 0;
+}
+
+.record-type {
+    color: #e50914;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.record-content h1 {
+    margin: 9px 0 14px;
+    font-size: clamp(24px, 3vw, 34px);
+}
+
+.record-description {
+    margin-bottom: 22px;
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.record-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.record-fields div {
+    padding: 12px;
+    border: 1px solid #292929;
+    border-radius: 6px;
+    background: #101010;
+}
+
+.record-fields dt {
+    margin-bottom: 6px;
+    color: #777;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.record-fields dd {
+    color: #eee;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.manage-form-container {
+    padding: 10px 0;
+}
+
+.form-poster-preview {
+    display: block;
+    width: 90px;
+    height: 125px;
+    margin-top: 12px;
+    border: 1px solid #383838;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.submit-btn:disabled {
+    border: 1px solid #383838;
+    background: #333;
+    color: #888;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .content-main {
+        min-height: 0;
+    }
+
+    .manage-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .record-details {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        padding: 18px;
+    }
+
+    .record-poster {
+        width: min(100%, 260px);
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .manage-heading h1 {
+        font-size: 22px;
+    }
+
+    .manage-table th,
+    .manage-table td {
+        padding: 12px;
+    }
+
+    .record-fields {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

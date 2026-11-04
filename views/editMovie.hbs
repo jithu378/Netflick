@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Movie | NETFLICK Admin</title>
+    <link rel="stylesheet" href="/css/add-form.css">
+    <link rel="stylesheet" href="/css/manage-content.css">
+</head>
+
+<body>
+    <main class="form-container manage-form-container">
+        <div class="form-header">
+            <a href="/content/manage-movies" class="back-link">← Back to Movies</a>
+            <h1>Update Movie</h1>
+            <p>Edit movie information and optionally replace its poster.</p>
+        </div>
+
+        <form action="/content/update-movie/{{movie._id}}" method="POST" class="content-form"
+            enctype="multipart/form-data">
+            <div class="form-group form-group--full">
+                <label for="title">Movie Title</label>
+                <input id="title" type="text" name="title" value="{{movie.movieTitle}}" required>
+            </div>
+            <div class="form-group form-group--full">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4" required>{{movie.movieDescription}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input id="genre" type="text" name="genre" value="{{movie.movieGenre}}" required>
+            </div>
+            <div class="form-group">
+                <label for="release-year">Release Year</label>
+                <input id="release-year" type="number" name="releaseYear" value="{{movie.movieReleaseYear}}" required>
+            </div>
+            <div class="form-group">
+                <label for="language">Language</label>
+                <input id="language" type="text" name="language" value="{{movie.movieLanguage}}" required>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration (Minutes)</label>
+                <input id="duration" type="number" name="duration" value="{{movie.movieDuration}}" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating (0-10)</label>
+                <input id="rating" type="number" name="rating" min="0" max="10" step="0.1"
+                    value="{{movie.movieRating}}" required>
+            </div>
+            <div class="form-group form-group--full">
+                <label for="movie-poster">Replace Poster (optional)</label>
+                <input id="movie-poster" type="file" name="movie-poster"
+                    accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+                <input type="hidden" name="moviePoster" value="{{movie.moviePoster}}">
+                {{#if movie.moviePoster}}
+                <img class="form-poster-preview" src="{{movie.moviePoster}}" alt="{{movie.movieTitle}} poster">
+                {{/if}}
+            </div>
+            <button type="submit" class="submit-btn">Save Movie</button>
+        </form>
+    </main>
+</body>
+
+</html>

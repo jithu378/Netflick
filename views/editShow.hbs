@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update TV Show | NETFLICK Admin</title>
+    <link rel="stylesheet" href="/css/add-form.css">
+    <link rel="stylesheet" href="/css/manage-content.css">
+</head>
+
+<body>
+    <main class="form-container manage-form-container">
+        <div class="form-header">
+            <a href="/content/manage-shows" class="back-link">← Back to TV Shows</a>
+            <h1>Update TV Show</h1>
+            <p>Edit show information and optionally replace its poster.</p>
+        </div>
+
+        <form action="/content/update-show/{{show._id}}" method="POST" class="content-form"
+            enctype="multipart/form-data">
+            <div class="form-group form-group--full">
+                <label for="title">Show Title</label>
+                <input id="title" type="text" name="title" value="{{show.showTitle}}" required>
+            </div>
+            <div class="form-group form-group--full">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4" required>{{show.showDescription}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input id="genre" type="text" name="genre" value="{{show.showGenre}}" required>
+            </div>
+            <div class="form-group">
+                <label for="release-year">Release Year</label>
+                <input id="release-year" type="number" name="releaseYear" value="{{show.showReleaseYear}}" required>
+            </div>
+            <div class="form-group">
+                <label for="language">Language</label>
+                <input id="language" type="text" name="language" value="{{show.showLanguage}}" required>
+            </div>
+            <div class="form-group">
+                <label for="total-seasons">Total Seasons</label>
+                <input id="total-seasons" type="number" name="totalSeasons" value="{{show.showTotalSeasons}}" required>
+            </div>
+            <div class="form-group">
+                <label for="total-episodes">Total Episodes</label>
+                <input id="total-episodes" type="number" name="totalEpisodes"
+                    value="{{show.showTotalEpisodes}}" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating (0-10)</label>
+                <input id="rating" type="number" name="rating" min="0" max="10" step="0.1"
+                    value="{{show.showRating}}" required>
+            </div>
+            <div class="form-group form-group--full">
+                <label for="show-poster">Replace Poster (optional)</label>
+                <input id="show-poster" type="file" name="posterImage"
+                    accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+                <input type="hidden" name="showPoster" value="{{show.showPoster}}">
+                {{#if show.showPoster}}
+                <img class="form-poster-preview" src="{{show.showPoster}}" alt="{{show.showTitle}} poster">
+                {{/if}}
+            </div>
+            <button type="submit" class="submit-btn">Save TV Show</button>
+        </form>
+    </main>
+</body>
+
+</html>

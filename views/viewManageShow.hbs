@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{show.showTitle}} | NETFLICK Admin</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/manage-content.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-logo">NETFLICK<span>.</span></div>
+            <div class="sidebar-label">MAIN MENU</div>
+            <nav class="sidebar-nav"><a href="/content/admin" class="nav-item"><span>▦</span>Dashboard</a></nav>
+            <div class="sidebar-label management-label">CONTENT MANAGEMENT</div>
+            <nav class="sidebar-nav">
+                <a href="/content/manage-movies" class="nav-item"><span>▣</span>Movies</a>
+                <a href="/content/manage-shows" class="nav-item active"><span>▤</span>TV Shows</a>
+                <a href="/content/manage-categories" class="nav-item"><span>▧</span>Categories</a>
+            </nav>
+            <div class="sidebar-bottom"><a href="/netflick" class="back-home"><span>↩</span>Back to Website</a></div>
+        </aside>
+        <main class="admin-main content-main">
+            <header class="admin-topbar">
+                <div><p class="topbar-subtitle">NETFLICK / ADMIN / TV SHOWS</p><h2>TV Show Details</h2></div>
+                <div class="admin-profile">
+                    <div class="profile-avatar">A</div>
+                    <div><h4>Administrator</h4><p>Admin Panel</p></div>
+                </div>
+            </header>
+            <a href="/content/manage-shows" class="manage-back-link">← Back to TV Shows</a>
+            <section class="record-details">
+                <div class="record-poster">
+                    {{#if show.showPoster}}
+                    <img src="{{show.showPoster}}" alt="{{show.showTitle}} poster" onerror="this.remove()">
+                    {{/if}}
+                    <span>▤</span>
+                </div>
+                <div class="record-content">
+                    <span class="record-type">TV SHOW</span>
+                    <h1>{{show.showTitle}}</h1>
+                    <p class="record-description">{{show.showDescription}}</p>
+                    <dl class="record-fields">
+                        <div><dt>Genre</dt><dd>{{show.showGenre}}</dd></div>
+                        <div><dt>Release Year</dt><dd>{{show.showReleaseYear}}</dd></div>
+                        <div><dt>Language</dt><dd>{{show.showLanguage}}</dd></div>
+                        <div><dt>Total Seasons</dt><dd>{{show.showTotalSeasons}}</dd></div>
+                        <div><dt>Total Episodes</dt><dd>{{show.showTotalEpisodes}}</dd></div>
+                        <div><dt>Rating</dt><dd>★ {{show.showRating}}/10</dd></div>
+                    </dl>
+                    <a href="/content/edit-show/{{show._id}}" class="manage-add-button">Update TV Show</a>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

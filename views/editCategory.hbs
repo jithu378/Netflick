@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Category | NETFLICK Admin</title>
+    <link rel="stylesheet" href="/css/add-form.css">
+    <link rel="stylesheet" href="/css/manage-content.css">
+</head>
+
+<body>
+    <main class="form-container category-container manage-form-container">
+        <div class="form-header">
+            <a href="/content/manage-categories" class="back-link">← Back to Categories</a>
+            <h1>Update Category</h1>
+            <p>Category editing is not enabled yet.</p>
+        </div>
+
+        <form action="/content/manage-categories" method="GET" class="content-form">
+            <div class="form-group">
+                <label for="category-name">Category Name</label>
+                <input id="category-name" type="text" name="name" value="{{category.categoryName}}" readonly>
+            </div>
+            <button type="button" class="submit-btn" disabled>Update Unavailable</button>
+        </form>
+    </main>
+</body>
+
+</html>

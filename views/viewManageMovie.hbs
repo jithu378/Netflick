@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{movie.movieTitle}} | NETFLICK Admin</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/manage-content.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-logo">NETFLICK<span>.</span></div>
+            <div class="sidebar-label">MAIN MENU</div>
+            <nav class="sidebar-nav"><a href="/content/admin" class="nav-item"><span>▦</span>Dashboard</a></nav>
+            <div class="sidebar-label management-label">CONTENT MANAGEMENT</div>
+            <nav class="sidebar-nav">
+                <a href="/content/manage-movies" class="nav-item active"><span>▣</span>Movies</a>
+                <a href="/content/manage-shows" class="nav-item"><span>▤</span>TV Shows</a>
+                <a href="/content/manage-categories" class="nav-item"><span>▧</span>Categories</a>
+            </nav>
+            <div class="sidebar-bottom"><a href="/netflick" class="back-home"><span>↩</span>Back to Website</a></div>
+        </aside>
+        <main class="admin-main content-main">
+            <header class="admin-topbar">
+                <div><p class="topbar-subtitle">NETFLICK / ADMIN / MOVIES</p><h2>Movie Details</h2></div>
+                <div class="admin-profile">
+                    <div class="profile-avatar">A</div>
+                    <div><h4>Administrator</h4><p>Admin Panel</p></div>
+                </div>
+            </header>
+            <a href="/content/manage-movies" class="manage-back-link">← Back to Movies</a>
+            <section class="record-details">
+                <div class="record-poster">
+                    {{#if movie.moviePoster}}
+                    <img src="{{movie.moviePoster}}" alt="{{movie.movieTitle}} poster" onerror="this.remove()">
+                    {{/if}}
+                    <span>▣</span>
+                </div>
+                <div class="record-content">
+                    <span class="record-type">MOVIE</span>
+                    <h1>{{movie.movieTitle}}</h1>
+                    <p class="record-description">{{movie.movieDescription}}</p>
+                    <dl class="record-fields">
+                        <div><dt>Genre</dt><dd>{{movie.movieGenre}}</dd></div>
+                        <div><dt>Release Year</dt><dd>{{movie.movieReleaseYear}}</dd></div>
+                        <div><dt>Language</dt><dd>{{movie.movieLanguage}}</dd></div>
+                        <div><dt>Duration</dt><dd>{{movie.movieDuration}} minutes</dd></div>
+                        <div><dt>Rating</dt><dd>★ {{movie.movieRating}}/10</dd></div>
+                    </dl>
+                    <a href="/content/edit-movie/{{movie._id}}" class="manage-add-button">Update Movie</a>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
