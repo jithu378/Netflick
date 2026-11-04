@@ -10,8 +10,8 @@ const storage = multer.diskStorage({
     destination : (req, file, cb) => {
         cb(null, "uploads/");
     },
-    filename : (req, file, cb) => {
-        cb(null, Date.now() + "-" + posterImage.orginalName)
+    filename : (req, posterImage, cb) => {
+        cb(null, Date.now() + "-" + posterImage.originalname)
     }
 })
 
@@ -32,7 +32,6 @@ router.get("/add-movie",async (req,res) => {
 
 router.get("/add-show", async (req,res) => {
     const categoryData = await categoryDetails.find()
-    console.log(categoryData)
     res.render("add-show", {categories : categoryData})
 })
 
@@ -67,6 +66,7 @@ router.post("/add-category-form", async (req, res) => {
 
 router.post("/add-show-form", posterImage.single("posterImage"), async (req, res) => {
     const {title, description, genre, releaseYear, language, totalSeasons, totalEpisodes, rating} =req.body;
+    const image = `/uploads/${req.file.filename}`;
     const showData = await showDetails.create({
         showTitle : title,
         showDescription : description,
@@ -75,7 +75,8 @@ router.post("/add-show-form", posterImage.single("posterImage"), async (req, res
         showLanguage : language,
         showTotalSeasons : totalSeasons,
         showTotalEpisodes : totalEpisodes,
-        showRating : rating
+        showRating : rating,
+        moviePoster : image
     })
 
     res.redirect("/content/admin")
