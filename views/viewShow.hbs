@@ -61,6 +61,10 @@
             <!-- Poster Column -->
             <div class="details-poster-card">
                 <div class="poster-inner">
+                    {{#if viewShow.showPoster}}
+                    <img src="{{viewShow.showPoster}}" alt="{{viewShow.showTitle}} poster"
+                        class="poster-image" onerror="this.remove()">
+                    {{/if}}
                     <span class="poster-main-icon">
                         <i class="fa-solid fa-tv"></i>
                     </span>

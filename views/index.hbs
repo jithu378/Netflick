@@ -145,6 +145,10 @@
                 <div class="movie-card">
                     <!-- Poster -->
                     <div class="movie-poster">
+                        {{#if moviePoster}}
+                        <img src="{{moviePoster}}" alt="{{movieTitle}} poster" class="poster-image"
+                            onerror="this.remove()">
+                        {{/if}}
                         <span class="movie-icon">
                             <i class="fa-solid fa-film"></i>
                         </span>

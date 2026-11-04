@@ -78,6 +78,10 @@
                 <!-- Show Poster -->
                 <div class="movie-poster show-poster">
 
+                    {{#if showPoster}}
+                    <img src="{{showPoster}}" alt="{{showTitle}} poster" class="poster-image"
+                        onerror="this.remove()">
+                    {{/if}}
                     <span class="movie-icon">
                         <i class="fa-solid fa-tv"></i>
                     </span>

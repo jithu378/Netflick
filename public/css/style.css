@@ -444,6 +444,21 @@ a {
         linear-gradient(145deg, #242424, #111111 72%);
 }
 
+.poster-image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-icon,
+.poster-main-icon {
+    position: relative;
+    z-index: 0;
+}
+
 .movie-icon {
     font-size: 62px;
     color: #5b5b5b;
@@ -457,6 +472,7 @@ a {
 
 .movie-year {
     position: absolute;
+    z-index: 2;
     top: 14px;
     right: 14px;
     padding: 6px 9px;
@@ -469,6 +485,7 @@ a {
 
 .poster-overlay {
     position: absolute;
+    z-index: 2;
     inset: 0;
     display: flex;
     align-items: center;
@@ -476,6 +493,12 @@ a {
     background: rgba(0, 0, 0, 0.48);
     opacity: 0;
     transition: opacity 0.25s ease;
+}
+
+.poster-year-badge,
+.poster-quality-badge,
+.poster-play-overlay {
+    z-index: 2;
 }
 
 .movie-card:hover .poster-overlay {

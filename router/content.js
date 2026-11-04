@@ -10,12 +10,12 @@ const storage = multer.diskStorage({
     destination : (req, file, cb) => {
         cb(null, "uploads/");
     },
-    filename : (req, posterImage, cb) => {
-        cb(null, Date.now() + "-" + posterImage.originalname)
+    filename : (req, file, cb) => {
+        cb(null, Date.now() + "-" + file.originalname)
     }
 })
 
-const posterImage = multer({storage})
+const file = multer({storage})
 
 router.get("/admin", async(req,res) => {
     const movieCount = await movieDetails.countDocuments();
@@ -40,8 +40,10 @@ router.get("/add-category", (req,res) => {
 })
 
 // form data
-router.post("/add-movie-form",posterImage.single("posterImage"), async (req,res) => {
+router.post("/add-movie-form",file.single("movie-poster"), async (req,res) => {
+    
     const {title, description, genre, releaseYear, language, duration, rating} =req.body;
+    const image = `/uploads/${req.file.filename}`;
     const movieData = await movieDetails.create({
         movieTitle : title,
         movieDescription : description,
@@ -49,14 +51,15 @@ router.post("/add-movie-form",posterImage.single("posterImage"), async (req,res)
         movieReleaseYear : releaseYear,
         movieLanguage : language,
         movieDuration : duration,
-        movieRating : rating
-
+        movieRating : rating,
+        moviePoster : image
     })
 
     res.redirect("/content/admin")
 })
 
 router.post("/add-category-form", async (req, res) => {
+    const {name} = req.body;
     const categoryData = await categoryDetails.create({
         categoryName : name
     })
@@ -64,7 +67,7 @@ router.post("/add-category-form", async (req, res) => {
 })
 
 
-router.post("/add-show-form", posterImage.single("posterImage"), async (req, res) => {
+router.post("/add-show-form", file.single("movie-poster"), async (req, res) => {
     const {title, description, genre, releaseYear, language, totalSeasons, totalEpisodes, rating} =req.body;
     const image = `/uploads/${req.file.filename}`;
     const showData = await showDetails.create({
@@ -76,7 +79,7 @@ router.post("/add-show-form", posterImage.single("posterImage"), async (req, res
         showTotalSeasons : totalSeasons,
         showTotalEpisodes : totalEpisodes,
         showRating : rating,
-        moviePoster : image
+        showPoster : image
     })
 
     res.redirect("/content/admin")

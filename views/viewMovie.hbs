@@ -61,6 +61,10 @@
             <!-- Poster Column -->
             <div class="details-poster-card">
                 <div class="poster-inner">
+                    {{#if viewMovie.moviePoster}}
+                    <img src="{{viewMovie.moviePoster}}" alt="{{viewMovie.movieTitle}} poster"
+                        class="poster-image" onerror="this.remove()">
+                    {{/if}}
                     <span class="poster-main-icon">
                         <i class="fa-solid fa-film"></i>
                     </span>
