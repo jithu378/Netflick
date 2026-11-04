@@ -123,6 +123,32 @@ router.post("/add-show-form", file.single("posterImage"), async (req, res) => {
     res.redirect("/content/admin")
 })
 
-
+router.post("/delete-movie/:id", async (req, res) => {
+        try {
+            await movieDetails.findByIdAndDelete(req.params.id);
+            res.redirect("/content/admin");
+        } catch (error) {
+            console.log(error);
+            res.redirect("/content/admin/");
+        }
+    });
+router.post("/delete-show/:id", async (req, res) => {
+        try {
+            await showDetails.findByIdAndDelete(req.params.id);
+            res.redirect("/content/admin");
+        } catch (error) {
+            console.log(error);
+            res.redirect("/content/admin/");
+        }
+    });
+router.post("/delete-category/:id", async (req, res) => {
+        try {
+            await categoryDetails.findByIdAndDelete(req.params.id);
+            res.redirect("/content/admin");
+        } catch (error) {
+            console.log(error);
+            res.redirect("/content/admin/");
+        }
+    });
 
 module.exports = router;
