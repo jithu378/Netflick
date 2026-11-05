@@ -17,6 +17,7 @@ const storage = multer.diskStorage({
 
 const file = multer({storage})
 
+//admin hashboard
 router.get("/admin", async(req,res) => {
     const movieCount = await movieDetails.countDocuments();
     const showCount = await showDetails.countDocuments();
@@ -25,7 +26,7 @@ router.get("/admin", async(req,res) => {
     res.render("admin",{movieCount, showCount, categoryCount, totalContent});
 })
 
-
+// manage page
 router.get("/manage-movies", async (req, res) => {
     const movies = await movieDetails.find().sort({movieTitle: 1});
     res.render("manageMovies", {movies});
@@ -41,6 +42,7 @@ router.get("/manage-categories", async (req, res) => {
     res.render("manageCategories", {categories});
 })
 
+// view page 
 router.get("/view-movie/:id", async (req, res) => {
     try {
         const movie = await movieDetails.findById(req.params.id);
@@ -61,8 +63,7 @@ router.get("/view-show/:id", async (req, res) => {
     }
 })
 
-
-
+// add page
 router.get("/add-movie",async (req,res) => {
     const categoryData = await categoryDetails.find()
     res.render("add-movie", {categories : categoryData})
@@ -75,6 +76,19 @@ router.get("/add-show", async (req,res) => {
 
 router.get("/add-category", (req,res) => {
     res.render("add-category")
+})
+
+// update page
+router.get("/edit-movie/:id", async (req, res) =>{
+    res.render("editMovie")
+})
+
+router.get("/edit-show/:id", async (req, res) =>{
+    res.render("editShow")
+})
+
+router.get("/edit-category/:id", async (req, res) =>{
+    res.render("editCategory")
 })
 
 // form data
@@ -123,6 +137,7 @@ router.post("/add-show-form", file.single("posterImage"), async (req, res) => {
     res.redirect("/content/admin")
 })
 
+// delete request
 router.post("/delete-movie/:id", async (req, res) => {
         try {
             await movieDetails.findByIdAndDelete(req.params.id);
@@ -132,6 +147,7 @@ router.post("/delete-movie/:id", async (req, res) => {
             res.redirect("/content/admin/");
         }
     });
+
 router.post("/delete-show/:id", async (req, res) => {
         try {
             await showDetails.findByIdAndDelete(req.params.id);
@@ -141,6 +157,7 @@ router.post("/delete-show/:id", async (req, res) => {
             res.redirect("/content/admin/");
         }
     });
+
 router.post("/delete-category/:id", async (req, res) => {
         try {
             await categoryDetails.findByIdAndDelete(req.params.id);
