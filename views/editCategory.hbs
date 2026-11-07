@@ -14,15 +14,15 @@
         <div class="form-header">
             <a href="/content/manage-categories" class="back-link">← Back to Categories</a>
             <h1>Update Category</h1>
-            <p>Category editing is not enabled yet.</p>
+            <p>Edit category information</p>
         </div>
 
-        <form action="/content/manage-categories" method="GET" class="content-form">
+        <form action="/content/update-category/{{category._id}}" method="POST" class="content-form">
             <div class="form-group">
                 <label for="category-name">Category Name</label>
-                <input id="category-name" type="text" name="name" value="{{category.categoryName}}" readonly>
+                <input id="category-name" type="text" name="name" value="{{category.categoryName}}">
             </div>
-            <button type="button" class="submit-btn" disabled>Update Unavailable</button>
+            <button type="submit" class="submit-btn" >Update Category</button>
         </form>
     </main>
 </body>

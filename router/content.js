@@ -78,19 +78,6 @@ router.get("/add-category", (req,res) => {
     res.render("add-category")
 })
 
-// update page
-router.get("/edit-movie/:id", async (req, res) =>{
-    res.render("editMovie")
-})
-
-router.get("/edit-show/:id", async (req, res) =>{
-    res.render("editShow")
-})
-
-router.get("/edit-category/:id", async (req, res) =>{
-    res.render("editCategory")
-})
-
 // form data
 router.post("/add-movie-form",file.single("movie-poster"), async (req,res) => {
     
@@ -167,5 +154,98 @@ router.post("/delete-category/:id", async (req, res) => {
             res.redirect("/content/admin/");
         }
     });
+
+
+// update page
+router.get("/edit-movie/:id", async (req, res) =>{
+    try{
+        const movie = await movieDetails.findById(req.params.id);
+        res.render("editMovie", {movie})
+    } catch(error){
+        console.log(error);
+    }
+})
+
+router.get("/edit-show/:id", async (req, res) =>{
+    try{
+        const show = await showDetails.findById(req.params.id);
+        res.render("editShow", {show})
+    } catch(error){
+        console.log(error);
+    }
+})
+
+router.get("/edit-category/:id", async (req, res) =>{
+    try{
+        const category = await categoryDetails.findById(req.params.id);
+        res.render("editCategory", {category})
+    } catch(error){
+        console.log(error);
+    }
+})
+
+
+// update post
+
+router.post("/update-movie/:id", file.single("movie-poster"), async(req, res) => {
+    try{
+        const {title, description, genre, releaseYear, language, duration, rating} =req.body;
+        const data = {
+            movieTitle : title,
+            movieDescription : description,
+            movieGenre : genre,
+            movieReleaseYear : releaseYear,
+            movieLanguage : language,
+            movieDuration : duration,
+            movieRating : rating
+        };
+        if(req.file){
+            data.moviePoster = `/uploads/${req.file.filename}`;
+        }
+        const update = await movieDetails.findByIdAndUpdate(req.params.id, data, {returnDocument:"after"})
+        res.redirect("/content/manage-movies")
+    } catch(error){
+        console.log(error);
+        res.redirect("/netflick/")
+    }
+})
+
+router.post("/update-show/:id", file.single("posterImage"), async(req, res) => {
+    try{
+        const {title, description, genre, releaseYear, language, totalSeasons, totalEpisodes, rating} =req.body;
+        const data = {
+            showTitle : title,
+            showDescription : description,
+            showGenre : genre,
+            showReleaseYear : releaseYear,
+            showLanguage : language,
+            showTotalSeasons : totalSeasons,
+            showTotalEpisodes : totalEpisodes,
+            showRating : rating
+        };
+        if(req.file){
+            data.showPoster = `/uploads/${req.file.filename}`;
+        }
+        const update = await showDetails.findByIdAndUpdate(req.params.id, data, {returnDocument:"after"})
+        res.redirect("/content/manage-shows")
+    } catch(error){
+        console.log(error);
+        res.redirect("/netflick/")
+    }
+})
+
+router.post("/update-category/:id", async(req, res) => {
+    try{
+        const {name} =req.body;
+        const data = {
+            categoryName : name
+        };
+        const update = await categoryDetails.findByIdAndUpdate(req.params.id, data, {returnDocument:"after"})
+        res.redirect("/content/manage-categories")
+    } catch(error){
+        console.log(error);
+        res.redirect("/netflick/")
+    }
+})
 
 module.exports = router;
