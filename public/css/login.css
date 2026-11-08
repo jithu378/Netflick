@@ -1,1 +1,644 @@
-.auth-card form > .field-label { margin-top: 0; }
+/* ==========================================================================
+   NETFLICK LOGIN PAGE — PREMIUM CINEMATIC STREAMING PLATFORM STYLESHEET
+   Full-Screen Poster Collage Backdrop + Atmospheric Dark Glassmorphic Card
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Base Page Setup
+   -------------------------------------------------------------------------- */
+body.auth-page {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #080808;
+    color: #f7f7f7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   2. Cinematic Movie & TV-Show Poster Collage Backdrop
+   -------------------------------------------------------------------------- */
+.poster-backdrop {
+    position: fixed;
+    inset: -80px;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: #080808;
+    perspective: 1400px;
+    transform: translate3d(0, 0, 0);
+}
+
+.poster-grid-wrapper {
+    position: absolute;
+    inset: -100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    /* 3D diagonal perspective grid inspired by Netflix landing page */
+    transform-style: preserve-3d;
+    transform: scale(1.14) rotateX(7deg) rotateZ(-3.2deg);
+    transform-origin: center center;
+    filter: brightness(0.63) contrast(1.12) saturate(1.05);
+    will-change: transform;
+}
+
+.poster-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    width: max-content;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Staggered depth layering and offsets across the 5 rows for continuous coverage */
+.poster-row:nth-child(1) {
+    transform: translateZ(-35px);
+    opacity: 0.92;
+    margin-left: -18vw;
+}
+
+.poster-row:nth-child(2) {
+    transform: translateZ(-15px);
+    opacity: 0.96;
+    margin-left: -26vw;
+}
+
+.poster-row:nth-child(3) {
+    transform: translateZ(10px);
+    opacity: 1;
+    margin-left: -15vw;
+}
+
+.poster-row:nth-child(4) {
+    transform: translateZ(25px);
+    opacity: 1;
+    margin-left: -24vw;
+}
+
+.poster-row:nth-child(5) {
+    transform: translateZ(0px);
+    opacity: 0.94;
+    margin-left: -18vw;
+}
+
+/* Individual Poster Cards */
+.poster-item {
+    flex: 0 0 clamp(130px, 10.5vw, 190px);
+    height: clamp(185px, 15vw, 275px);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+    transition: transform 0.25s ease;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* Varied Poster Sizes & Subtle Rotations for Organic Cinematic Depth */
+.poster-item.item-wide {
+    flex: 0 0 clamp(160px, 13vw, 235px);
+}
+
+.poster-item.item-tilt-left {
+    transform: rotate(-1.5deg);
+}
+
+.poster-item.item-tilt-right {
+    transform: rotate(1.8deg);
+}
+
+.poster-item.item-tilt-subtle {
+    transform: rotate(0.8deg);
+}
+
+.poster-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background-color: #161616;
+}
+
+/* --------------------------------------------------------------------------
+   3. Atmospheric Dark, Vignette & Crimson Overlays
+   -------------------------------------------------------------------------- */
+
+/* Top-to-Bottom Darkness Gradient (balanced to let posters shine through) */
+.poster-overlay-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.81) 0%,
+        rgba(4, 4, 4, 0.28) 28%,
+        rgba(4, 4, 4, 0.36) 72%,
+        rgba(0, 0, 0, 0.90) 100%
+    );
+}
+
+/* Localized Radial Vignette centered directly behind the Login Card */
+.poster-overlay-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(
+        ellipse 58% 58% at 50% 50%,
+        rgba(0, 0, 0, 0.74) 0%,
+        rgba(0, 0, 0, 0.48) 45%,
+        rgba(0, 0, 0, 0.18) 75%,
+        rgba(0, 0, 0, 0.68) 100%
+    );
+}
+
+/* Subtle Crimson Atmospheric Glow from the Top */
+.poster-overlay-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: radial-gradient(
+        ellipse 70% 45% at 50% -5%,
+        rgba(229, 9, 20, 0.20) 0%,
+        transparent 70%
+    );
+}
+
+/* --------------------------------------------------------------------------
+   4. Content Shell & Flexbox Layout
+   -------------------------------------------------------------------------- */
+.auth-shell {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: clamp(16px, 2.5vw, 28px) clamp(20px, 4vw, 56px) 14px;
+    box-sizing: border-box;
+}
+
+/* Header & NETFLICK Brand */
+.auth-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 6px;
+    flex-shrink: 0;
+}
+
+.brand {
+    margin-left: 0 !important; /* Override auth.css margin offset */
+    color: #e50914 !important;
+    font-size: clamp(1.65rem, 3.2vw, 2.15rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+    text-shadow: 0 0 24px rgba(229, 9, 20, 0.4);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.brand:hover {
+    opacity: 0.92;
+    transform: scale(1.02);
+}
+
+/* Centered Main Area */
+.auth-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 8px 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. Premium Glassmorphic Login Card
+   -------------------------------------------------------------------------- */
+.auth-card {
+    margin: auto !important; /* Override auth.css vertical margin */
+    width: 100%;
+    max-width: 410px;
+    padding: 28px 32px 26px !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 12px;
+    background: rgba(14, 14, 14, 0.90) !important;
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.90),
+        0 0 40px rgba(229, 9, 20, 0.08) !important;
+    box-sizing: border-box;
+}
+
+/* Typography Inside Card */
+.eyebrow {
+    margin: 0 0 5px !important;
+    color: #e50914 !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase;
+}
+
+#login-heading {
+    margin: 0 !important;
+    font-size: clamp(1.75rem, 3.2vw, 2.05rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+    color: #ffffff !important;
+    line-height: 1.15;
+}
+
+.card-intro {
+    margin: 5px 0 18px !important;
+    color: #9e9e9e !important;
+    font-size: 0.88rem !important;
+    line-height: 1.45 !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Form Inputs & Controls
+   -------------------------------------------------------------------------- */
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-label {
+    display: block;
+    margin: 0 0 6px !important;
+    color: #d6d6d6 !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em;
+}
+
+/* Input Fields with High Contrast Focus States */
+.auth-card input:not([type="checkbox"]) {
+    width: 100%;
+    height: 44px !important;
+    padding: 0 14px !important;
+    border: 1px solid #383838 !important;
+    border-radius: 6px !important;
+    outline: none !important;
+    background: rgba(12, 12, 12, 0.92) !important;
+    color: #ffffff !important;
+    font-size: 0.9rem !important;
+    box-sizing: border-box;
+    transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.auth-card input:not([type="checkbox"]):hover {
+    border-color: #4e4e4e !important;
+    background: rgba(18, 18, 18, 0.95) !important;
+}
+
+.auth-card input:not([type="checkbox"]):focus {
+    border-color: #e50914 !important;
+    background: #141414 !important;
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.24) !important;
+}
+
+.auth-card input::placeholder {
+    color: #666666 !important;
+}
+
+/* Password Heading Row */
+.field-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 13px !important;
+    margin-bottom: 0 !important;
+}
+
+.field-heading .field-label {
+    margin-bottom: 6px !important;
+}
+
+.subtle-link {
+    color: #9a9a9a !important;
+    font-size: 0.78rem !important;
+    text-decoration: none !important;
+    padding-bottom: 0 !important;
+    transition: color 0.16s ease;
+}
+
+.subtle-link:hover {
+    color: #e50914 !important;
+    text-decoration: underline !important;
+}
+
+/* Password Field & Toggle */
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    padding-right: 64px !important;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    padding: 4px 8px !important;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #8c8c8c !important;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.76rem !important;
+    font-weight: 600;
+    transform: translateY(-50%);
+    transition: color 0.16s ease;
+}
+
+.password-toggle:hover {
+    color: #ffffff !important;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid #e50914;
+    outline-offset: 1px;
+}
+
+/* Remember Me Checkbox */
+.check-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px !important;
+    margin: 13px 0 0 !important;
+    color: #b8b8b8 !important;
+    cursor: pointer;
+    font-size: 0.82rem !important;
+    user-select: none;
+}
+
+.check-row input {
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 !important;
+    accent-color: #e50914 !important;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* Form Validation Feedback */
+.form-feedback {
+    min-height: 18px !important;
+    margin: 9px 0 3px !important;
+    color: #ff555d !important;
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+}
+
+.form-feedback.is-success {
+    color: #6edb8f !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Prominent NETFLICK Red Sign In Button
+   -------------------------------------------------------------------------- */
+.primary-button {
+    width: 100%;
+    height: 45px !important;
+    min-height: 45px !important;
+    margin-top: 8px !important;
+    border: 0 !important;
+    border-radius: 6px !important;
+    background: #e50914 !important;
+    color: #ffffff !important;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.94rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 18px rgba(229, 9, 20, 0.32) !important;
+    transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease;
+}
+
+.primary-button:hover {
+    background: #f40612 !important;
+    box-shadow: 0 6px 24px rgba(229, 9, 20, 0.48) !important;
+    transform: translateY(-1px);
+}
+
+.primary-button:active {
+    transform: translateY(0);
+    background: #cc0812 !important;
+    box-shadow: 0 2px 8px rgba(229, 9, 20, 0.3) !important;
+}
+
+.primary-button:focus-visible {
+    outline: 2px solid #ffffff !important;
+    outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   8. Registration Switch Link
+   -------------------------------------------------------------------------- */
+.auth-switch {
+    margin: 18px 0 0 !important;
+    color: #888888 !important;
+    font-size: 0.84rem !important;
+    text-align: center;
+}
+
+.auth-switch a {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    margin-left: 4px;
+    text-decoration: none;
+    transition: color 0.16s ease;
+}
+
+.auth-switch a:hover {
+    color: #e50914 !important;
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   9. Minimalist Footer
+   -------------------------------------------------------------------------- */
+.auth-footer {
+    width: 100%;
+    margin-top: 0 !important;
+    padding: 10px 0 4px !important;
+    color: #555555 !important;
+    font-size: 0.74rem !important;
+    letter-spacing: 0.04em;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsive Breakpoints (1920x1080, 1366x768, 1280x720, Tablet, Mobile)
+   -------------------------------------------------------------------------- */
+
+/* Laptop screens (1366x768, 1280x720, or compact vertical heights) */
+@media (max-height: 720px) {
+    .auth-shell {
+        padding: 14px clamp(16px, 3vw, 40px) 10px;
+    }
+
+    .auth-card {
+        padding: 22px 28px 20px !important;
+    }
+
+    .card-intro {
+        margin-bottom: 14px !important;
+        font-size: 0.84rem !important;
+    }
+
+    #login-heading {
+        font-size: 1.7rem !important;
+    }
+
+    .auth-card input:not([type="checkbox"]) {
+        height: 40px !important;
+    }
+
+    .field-heading {
+        margin-top: 10px !important;
+    }
+
+    .check-row {
+        margin-top: 10px !important;
+    }
+
+    .primary-button {
+        height: 41px !important;
+        min-height: 41px !important;
+        margin-top: 6px !important;
+    }
+
+    .auth-switch {
+        margin-top: 14px !important;
+    }
+
+    .auth-footer {
+        padding: 6px 0 2px !important;
+    }
+}
+
+/* Ultra-short viewports / Landscape Mobile (< 540px height) */
+@media (max-height: 540px) {
+    body.auth-page {
+        overflow-y: auto; /* Allow natural scrolling when content genuinely cannot fit */
+    }
+
+    .auth-shell {
+        min-height: auto;
+        padding-top: 10px;
+        padding-bottom: 14px;
+    }
+
+    .auth-card {
+        margin-top: 8px !important;
+        margin-bottom: 12px !important;
+    }
+}
+
+/* Tablet Screens (<= 768px) */
+@media (max-width: 768px) {
+    .poster-grid-wrapper {
+        transform: scale(1.10) rotateX(5deg) rotateZ(-2.5deg);
+        gap: 12px;
+        filter: brightness(0.60) contrast(1.12) saturate(1.05);
+    }
+
+    .poster-row {
+        gap: 12px;
+    }
+
+    .poster-row:nth-child(1) { margin-left: -16vw; }
+    .poster-row:nth-child(2) { margin-left: -25vw; }
+    .poster-row:nth-child(3) { margin-left: -14vw; }
+    .poster-row:nth-child(4) { margin-left: -23vw; }
+    .poster-row:nth-child(5) { margin-left: -16vw; }
+
+    .poster-item {
+        flex: 0 0 clamp(115px, 14vw, 150px);
+        height: clamp(165px, 20vw, 215px);
+    }
+
+    .poster-item.item-wide {
+        flex: 0 0 clamp(140px, 17vw, 185px);
+    }
+}
+
+/* Mobile Screens (<= 480px) */
+@media (max-width: 480px) {
+    .poster-grid-wrapper {
+        transform: scale(1.06) rotateX(3deg) rotateZ(-1.8deg);
+        gap: 10px;
+        filter: brightness(0.56) contrast(1.12) saturate(1.02);
+    }
+
+    .poster-row {
+        gap: 10px;
+    }
+
+    /* Hide 5th row on very small mobile screens to keep performance smooth and layout balanced */
+    .poster-row:nth-child(5) {
+        display: none;
+    }
+
+    .poster-row:nth-child(1) { margin-left: -12vw; }
+    .poster-row:nth-child(2) { margin-left: -22vw; }
+    .poster-row:nth-child(3) { margin-left: -10vw; }
+    .poster-row:nth-child(4) { margin-left: -18vw; }
+
+    .poster-item {
+        flex: 0 0 110px;
+        height: 160px;
+        border-radius: 6px;
+    }
+
+    .poster-item.item-wide {
+        flex: 0 0 135px;
+    }
+
+    .auth-shell {
+        padding: 14px 16px 12px;
+    }
+
+    .brand {
+        font-size: 1.65rem !important;
+    }
+
+    .auth-card {
+        max-width: 100%;
+        padding: 24px 20px 22px !important;
+        border-radius: 10px;
+    }
+
+    #login-heading {
+        font-size: 1.65rem !important;
+    }
+
+    .card-intro {
+        font-size: 0.84rem !important;
+    }
+}

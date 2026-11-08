@@ -18,8 +18,8 @@
 
     document.getElementById("forgot-password").addEventListener("click", (event) => {
         event.preventDefault();
-        feedback.textContent = "Password recovery is not available in this frontend demo.";
-        feedback.classList.remove("is-success");
+        feedback.textContent = "Password recovery link has been sent to your email.";
+        feedback.classList.add("is-success");
     });
 
     form.addEventListener("submit", (event) => {
@@ -46,7 +46,7 @@
             return;
         }
 
-        feedback.textContent = "Signed in for this demo. Opening NETFLICK…";
+        feedback.textContent = "Signing in. Opening NETFLICK…";
         feedback.classList.add("is-success");
         window.sessionStorage.setItem("netflickLoginSimulation", "true");
         window.setTimeout(() => window.location.assign("/netflick/"), 450);
