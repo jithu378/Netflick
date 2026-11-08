@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080808">
+    <title>Sign In | NETFLICK</title>
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="/js/login.js" defer></script>
+</head>
+<body class="auth-page">
+    <main class="auth-shell">
+        <a class="brand" href="/netflick/" aria-label="NETFLICK home">NETFLICK</a>
+        <section class="auth-card" aria-labelledby="login-heading">
+            <p class="eyebrow">WELCOME BACK</p>
+            <h1 id="login-heading">Sign in</h1>
+            <p class="card-intro">Pick up where your next story begins.</p>
+            <form id="login-form" novalidate>
+                <label class="field-label" for="login-email">Email address</label>
+                <input id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                <div class="field-heading">
+                    <label class="field-label" for="login-password">Password</label>
+                    <a class="subtle-link" href="#" id="forgot-password">Forgot password?</a>
+                </div>
+                <div class="password-field">
+                    <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="8">
+                    <button class="password-toggle" type="button" data-password-toggle="login-password" aria-label="Show password" aria-pressed="false">Show</button>
+                </div>
+                <label class="check-row" for="remember-me">
+                    <input id="remember-me" name="remember" type="checkbox">
+                    <span>Remember me</span>
+                </label>
+                <p class="form-feedback" id="login-feedback" role="status" aria-live="polite"></p>
+                <button class="primary-button" type="submit">Sign in</button>
+            </form>
+            <p class="auth-switch">New to NETFLICK? <a href="/netflick/register">Create an account</a></p>
+            <p class="simulation-note">Frontend demo only — no account details are sent or stored.</p>
+        </section>
+        <footer class="auth-footer"><span>Stories worth staying in for.</span></footer>
+    </main>
+</body>
+</html>

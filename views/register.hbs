@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080808">
+    <title>Create Account | NETFLICK</title>
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/register.css">
+    <script src="/js/register.js" defer></script>
+</head>
+<body class="auth-page">
+    <main class="auth-shell">
+        <a class="brand" href="/netflick/" aria-label="NETFLICK home">NETFLICK</a>
+        <section class="auth-card" aria-labelledby="register-heading">
+            <p class="eyebrow">YOUR NEXT STORY STARTS HERE</p>
+            <h1 id="register-heading">Create account</h1>
+            <p class="card-intro">Join NETFLICK and keep every favourite close.</p>
+            <form id="register-form" novalidate>
+                <label class="field-label" for="register-name">Full name</label>
+                <input id="register-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                <label class="field-label spaced-label" for="register-email">Email address</label>
+                <input id="register-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                <label class="field-label spaced-label" for="register-password">Password</label>
+                <div class="password-field">
+                    <input id="register-password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" required minlength="8">
+                    <button class="password-toggle" type="button" data-password-toggle="register-password" aria-label="Show password" aria-pressed="false">Show</button>
+                </div>
+                <label class="field-label spaced-label" for="confirm-password">Confirm password</label>
+                <div class="password-field">
+                    <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Re-enter your password" required>
+                    <button class="password-toggle" type="button" data-password-toggle="confirm-password" aria-label="Show confirmation password" aria-pressed="false">Show</button>
+                </div>
+                <p class="password-hint">Use at least 8 characters, including a letter and a number.</p>
+                <label class="check-row terms-row" for="accept-terms">
+                    <input id="accept-terms" name="terms" type="checkbox" required>
+                    <span>I agree to the terms and conditions.</span>
+                </label>
+                <p class="form-feedback" id="register-feedback" role="status" aria-live="polite"></p>
+                <button class="primary-button" type="submit">Create account</button>
+            </form>
+            <p class="auth-switch">Already have an account? <a href="/netflick/login">Sign in</a></p>
+            <p class="simulation-note">Frontend demo only — your details are not saved or sent.</p>
+        </section>
+        <footer class="auth-footer"><span>Stories worth staying in for.</span></footer>
+    </main>
+</body>
+</html>

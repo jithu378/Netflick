@@ -1,0 +1,19 @@
+.auth-card { margin-top: clamp(30px, 5vh, 48px); }
+
+.spaced-label { margin-top: 18px; }
+
+.password-hint {
+    margin: 8px 0 0;
+    color: #858585;
+    font-size: 0.72rem;
+    line-height: 1.45;
+}
+
+.terms-row {
+    margin-top: 18px;
+    line-height: 1.4;
+}
+
+@media (max-width: 520px) {
+    .auth-card { margin-top: 31px; }
+}

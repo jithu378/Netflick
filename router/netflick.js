@@ -43,5 +43,8 @@ router.get("/viewShow/:id", async (req,res) => {
     res.render("viewShow", {viewShow})
 })
 
+router.get("/intro", (req,res) => {
+    res.render("intro")
+})
 
 module.exports=router;

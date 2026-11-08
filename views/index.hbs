@@ -221,5 +221,21 @@
 
     </main>
 
+    <script>
+        (() => {
+            const loginSimulation = window.sessionStorage.getItem("netflickLoginSimulation");
+            if (loginSimulation === "true") {
+                window.sessionStorage.removeItem("netflickLoginSimulation");
+                return;
+            }
+
+            if (window.localStorage.getItem("netflickIntroPlayed") === "true") {
+                window.location.replace("/netflick/login");
+                return;
+            }
+
+            window.location.replace("/netflick/intro?flow=first-run");
+        })();
+    </script>
 </body>
 </html>
