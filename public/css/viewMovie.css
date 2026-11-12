@@ -19,7 +19,7 @@
 }
 
 .movie-details-page {
-    min-height: calc(100vh - 72px);
+    min-height: 0;
     padding-bottom: 50px;
 }
 

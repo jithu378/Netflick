@@ -47,10 +47,6 @@ router.get("/viewShow/:id", async (req,res) => {
     res.render("viewShow", {viewShow})
 })
 
-router.get("/intro", (req,res) => {
-    res.render("intro")
-})
-
 router.get("/login", (req,res) => {
     res.render("login")
 })

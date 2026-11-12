@@ -13,6 +13,8 @@ body {
     background: #090909;
     color: #ffffff;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 button,
@@ -37,6 +39,7 @@ a {
 .navbar {
     width: 100%;
     min-height: 72px;
+    flex: 0 0 auto;
     padding: 0 clamp(20px, 5vw, 76px);
     display: flex;
     align-items: center;
@@ -86,6 +89,7 @@ a {
 
 .nav-right {
     gap: 16px;
+    justify-content: flex-end;
 }
 
 /* Admin Button */
@@ -157,6 +161,37 @@ a {
     color: #888888;
 }
 
+/* Logout Button */
+
+.logout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    padding: 9px 13px;
+    background: rgba(229, 9, 20, 0.10);
+    border: 1px solid rgba(229, 9, 20, 0.35);
+    border-radius: 6px;
+    color: #ff333d;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.logout-btn:hover {
+    background: #e50914;
+    border-color: #e50914;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.logout-btn:focus-visible {
+    outline: 2px solid #ff333d;
+    outline-offset: 2px;
+}
+
 /* Profile */
 
 .profile {
@@ -181,7 +216,8 @@ a {
 .container {
     width: 100%;
     max-width: 1560px;
-    margin: auto;
+    flex: 1 0 auto;
+    margin: 0 auto;
     padding: 28px clamp(20px, 5vw, 76px) 0;
 }
 
@@ -655,6 +691,7 @@ a {
 .footer {
     width: 100%;
     min-height: 110px;
+    flex: 0 0 auto;
     padding: 25px clamp(20px, 5vw, 76px);
 
     display: flex;
@@ -741,7 +778,7 @@ a {
 ============================== */
 
 .movies-page {
-    min-height: calc(100vh - 72px);
+    min-height: 0;
 }
 
 /* Page Heading */
@@ -907,7 +944,7 @@ a {
 ============================== */
 
 .shows-page {
-    min-height: calc(100vh - 72px);
+    min-height: 0;
 }
 
 /* Page Heading */
@@ -1081,7 +1118,7 @@ a {
 ============================== */
 
 .categories-page {
-    min-height: calc(100vh - 72px);
+    min-height: 0;
 }
 
 /* Page Heading */
@@ -1233,7 +1270,8 @@ a {
 /* ============================= */
 
 .my-list-page {
-    min-height: calc(100vh - 150px);
+    flex: 1 0 auto;
+    min-height: 0;
     padding: 55px 7%;
 }
 
@@ -1350,6 +1388,10 @@ a {
         align-items: flex-start;
         gap: 6px;
     }
+
+    .my-list-page {
+        padding: 39px 7%;
+    }
 }
 /* ==============================
    TABLET RESPONSIVE
@@ -1380,6 +1422,37 @@ a {
 
     .movie-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 4%;
+    }
+
+    .nav-left,
+    .nav-right {
+        width: 100%;
+    }
+
+    .nav-left {
+        justify-content: space-between;
+    }
+
+    .nav-right {
+        gap: 12px;
+    }
+
+    .search-box {
+        flex: 1;
+    }
+
+    .my-list-page {
+        padding: 49px 7%;
     }
 
 }
@@ -1583,6 +1656,11 @@ a {
     .footer {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .my-list-empty {
+        min-height: 340px;
+        padding: 28px 20px;
     }
 
     .footer-right {
