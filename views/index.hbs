@@ -19,9 +19,9 @@
     <header class="navbar">
 
         <div class="nav-left">
-            <a href="/netflick" class="logo">NETFLICK</a>
+            <a href="/netflick/home" class="logo">NETFLICK</a>
             <nav class="nav-links">
-                <a href="/netflick" class="active">Home</a>
+                <a href="/netflick/home" class="active">Home</a>
                 <a href="/netflick/displayMovies">Movies</a>
                 <a href="/netflick/displayShows">TV Shows</a>
                 <a href="/netflick/displayCategories">Categories</a>
@@ -221,21 +221,5 @@
 
     </main>
 
-    <script>
-        (() => {
-            const loginSimulation = window.sessionStorage.getItem("netflickLoginSimulation");
-            if (loginSimulation === "true") {
-                window.sessionStorage.removeItem("netflickLoginSimulation");
-                return;
-            }
-
-            if (window.localStorage.getItem("netflickIntroPlayed") === "true") {
-                window.location.replace("/netflick/login");
-                return;
-            }
-
-            window.location.replace("/netflick/intro?flow=first-run");
-        })();
-    </script>
 </body>
 </html>

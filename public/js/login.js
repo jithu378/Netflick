@@ -48,7 +48,7 @@
 
         feedback.textContent = "Signing in. Opening NETFLICK…";
         feedback.classList.add("is-success");
-        window.sessionStorage.setItem("netflickLoginSimulation", "true");
-        window.setTimeout(() => window.location.assign("/netflick/"), 450);
+        window.localStorage.setItem("netflickLoginSimulation", "true");
+        window.setTimeout(() => window.location.assign("/netflick/home"), 450);
     });
 })();

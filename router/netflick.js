@@ -6,7 +6,11 @@ const movieDetails = require("../models/movieModel");
 const showDetails = require("../models/showModel");
 const categoryDetails = require("../models/categoryModel");
 
-router.get("/", async(req,res) => {
+router.get("/", (req,res) => {
+    res.render("intro")
+});
+
+router.get("/home", async(req,res) => {
     const movieData = await movieDetails.find()
     res.render("index", {movies : movieData});
 });

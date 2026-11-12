@@ -7,12 +7,10 @@
  *   Scene 2 (1.5s – 5.0s) : 3D Physical Ribbon Formation
  *   Scene 3 (5.0s – 7.0s) : Completed 3D N & Glossy Light Sweep
  *   Scene 4 (7.0s – 9.5s) : Cinematic Vertical Light-Strip Environment
- *   Scene 5 (9.5s – 11.6s): NETFLICK Wordmark Resolve -> Navigation to Login
+ *   Scene 5 (9.5s – 11.6s): NETFLICK Wordmark Resolve -> Navigation
  */
 
 // Navigation & State Management
-const completionKey = "netflickIntroPlayed";
-const isFirstRun = new URLSearchParams(window.location.search).get("flow") === "first-run";
 const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const container = document.querySelector(".intro-container");
@@ -23,7 +21,7 @@ let hasNavigated = false;
 let animationFrameId = null;
 let cleanupHandler = null;
 
-function navigateToLogin() {
+function navigateAfterIntro() {
     if (hasNavigated) return;
     hasNavigated = true;
 
@@ -39,22 +37,15 @@ function navigateToLogin() {
         cancelAnimationFrame(animationFrameId);
     }
 
-    // Normal application tracking: only mark as completed if it was a first-run flow
-    // Manual testing at /netflick/intro preserves existing completion state
-    if (isFirstRun) {
-        try {
-            window.localStorage.setItem(completionKey, "true");
-        } catch (e) {
-            // Storage quota / disabled
-        }
-    }
-
-    window.location.replace("/netflick/login");
+    const destination = window.localStorage.getItem("netflickLoginSimulation") === "true"
+        ? "/netflick/home"
+        : "/netflick/login";
+    window.location.replace(destination);
 }
 
 // User-interactive Skip Controls
 if (skipBtn) {
-    skipBtn.addEventListener("click", navigateToLogin);
+    skipBtn.addEventListener("click", navigateAfterIntro);
     // Reveal skip button smoothly after 1.2 seconds
     setTimeout(() => {
         if (!hasNavigated) skipBtn.classList.add("is-ready");
@@ -63,7 +54,7 @@ if (skipBtn) {
 
 window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" || e.key === " " || e.key === "Enter") {
-        navigateToLogin();
+        navigateAfterIntro();
     }
 });
 
@@ -72,7 +63,7 @@ if (prefersReduced) {
     setTimeout(() => {
         if (container) container.classList.add("wordmark-active");
     }, 300);
-    setTimeout(navigateToLogin, 2400);
+    setTimeout(navigateAfterIntro, 2400);
 } else {
     initIntroExperience();
 }
@@ -119,7 +110,7 @@ async function initIntroExperience() {
     if (!isWebGLAvailable()) {
         console.warn("[NETFLICK INTRO] WebGL not available. Falling back to wordmark.");
         if (container) container.classList.add("wordmark-active");
-        setTimeout(navigateToLogin, 2600);
+        setTimeout(navigateAfterIntro, 2600);
         return;
     }
 
@@ -129,7 +120,7 @@ async function initIntroExperience() {
     } catch (err) {
         console.warn("[NETFLICK INTRO] Three.js load failed. Falling back gracefully:", err);
         if (container) container.classList.add("wordmark-active");
-        setTimeout(navigateToLogin, 2600);
+        setTimeout(navigateAfterIntro, 2600);
         return;
     }
 
@@ -671,7 +662,7 @@ async function initIntroExperience() {
         if (elapsed < totalDuration && !hasNavigated) {
             animationFrameId = requestAnimationFrame(renderFrame);
         } else if (!hasNavigated) {
-            navigateToLogin();
+            navigateAfterIntro();
         }
     }
 
