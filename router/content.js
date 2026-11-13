@@ -77,7 +77,7 @@ router.get("/add-show", async (req,res) => {
 router.get("/add-category", (req,res) => {
     res.render("add-category")
 })
-
+ 
 // form data
 router.post("/add-movie-form",file.single("movie-poster"), async (req,res) => {
     

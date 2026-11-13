@@ -26,21 +26,15 @@ function navigateAfterIntro() {
     hasNavigated = true;
 
     if (cleanupHandler) {
-        try {
-            cleanupHandler();
-        } catch (err) {
-            // Silently handle disposal errors during navigation
-        }
+        cleanupHandler();
     }
 
     if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
     }
 
-    const destination = window.localStorage.getItem("netflickLoginSimulation") === "true"
-        ? "/netflick/home"
-        : "/netflick/login";
-    window.location.replace(destination);
+    window.location.replace("/netflick/login");
+
 }
 
 // User-interactive Skip Controls
